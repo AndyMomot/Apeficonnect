@@ -1,0 +1,22 @@
+xcassets:
+  - inputs:
+    - Apeficonnect/Resources/Images
+    outputs:
+      - templateName: swift5
+        output: Apeficonnect/Resources/Images/Images.generated.swift
+  - inputs:
+    - Apeficonnect/Resources/Colors/Colors.xcassets
+    outputs:
+      - templateName: swift5
+        output: Apeficonnect/Resources/Colors/Colors.generated.swift
+        params:
+          enumName: Colors
+          
+fonts:
+  - inputs: Apeficonnect/Resources/Fonts
+    outputs:
+    - templateName: swift5
+      output: Apeficonnect/Resources/Fonts/Fonts.generated.swift
+      params:
+        enumName: Fonts
+
