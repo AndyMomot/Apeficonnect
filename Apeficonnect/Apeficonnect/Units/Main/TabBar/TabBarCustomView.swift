@@ -12,7 +12,6 @@ struct TabBarCustomView: View {
     
     @State private var items: [TabBar.Item] = [
         .init(imageName: Asset.startTab.name),
-        .init(imageName: Asset.plansTab.name),
         .init(imageName: Asset.trackerTab.name),
         .init(imageName: Asset.advicesTab.name),
         .init(imageName: Asset.goalsTab.name)

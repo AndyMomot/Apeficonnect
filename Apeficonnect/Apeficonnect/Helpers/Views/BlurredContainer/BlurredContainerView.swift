@@ -34,8 +34,8 @@ struct BlurredContainerView<C: View>: View {
                         startPoint: .leading,
                         endPoint: .trailing)
                 }
+                    .cornerRadius(30, corners: .allCorners)
             )
-            .cornerRadius(30, corners: .allCorners)
             .overlay {
                 RoundedRectangle(cornerRadius: 30)
                     .stroke(LinearGradient(
@@ -48,6 +48,7 @@ struct BlurredContainerView<C: View>: View {
                         endPoint: .trailing
                     ), lineWidth: 1)
             }
+            .padding(1)
     }
 }
 
@@ -75,5 +76,7 @@ struct BlurredContainerView<C: View>: View {
         }
         .padding()
         .offset(y: -100)
+        
+        Spacer()
     }
 }

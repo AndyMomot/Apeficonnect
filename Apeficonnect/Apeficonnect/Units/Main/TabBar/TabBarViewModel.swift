@@ -23,7 +23,6 @@ extension TabBar {
 extension TabBar {
     enum TabBarSelectionView: Int {
         case start = 0
-        case plans
         case tracker
         case advices
         case goals

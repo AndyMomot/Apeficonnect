@@ -68,6 +68,8 @@
 		47A579732CEB4EA40061850C /* LiniarGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579712CEB4EA40061850C /* LiniarGradientView.swift */; };
 		47A5797B2CEB507A0061850C /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579792CEB507A0061850C /* BlurView.swift */; };
 		47A579842CEB5D2A0061850C /* UserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579822CEB5D2A0061850C /* UserButton.swift */; };
+		47A579912CEB89CE0061850C /* FinanceTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A5798E2CEB89CE0061850C /* FinanceTrackerView.swift */; };
+		47A579922CEB89CE0061850C /* FinanceTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A5798F2CEB89CE0061850C /* FinanceTrackerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +136,8 @@
 		47A579712CEB4EA40061850C /* LiniarGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiniarGradientView.swift; sourceTree = "<group>"; };
 		47A579792CEB507A0061850C /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		47A579822CEB5D2A0061850C /* UserButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserButton.swift; sourceTree = "<group>"; };
+		47A5798E2CEB89CE0061850C /* FinanceTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceTrackerView.swift; sourceTree = "<group>"; };
+		47A5798F2CEB89CE0061850C /* FinanceTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceTrackerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +410,7 @@
 			children = (
 				474CEEB72CE8B3210002D250 /* TabBar */,
 				47A5794F2CE9FB830061850C /* HomeFlow */,
+				47A579862CEB87410061850C /* FinanceTrackerFlow */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -560,6 +565,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		47A579862CEB87410061850C /* FinanceTrackerFlow */ = {
+			isa = PBXGroup;
+			children = (
+				47A579902CEB89CE0061850C /* FinanceTracker */,
+			);
+			path = FinanceTrackerFlow;
+			sourceTree = "<group>";
+		};
+		47A579902CEB89CE0061850C /* FinanceTracker */ = {
+			isa = PBXGroup;
+			children = (
+				47A5798E2CEB89CE0061850C /* FinanceTrackerView.swift */,
+				47A5798F2CEB89CE0061850C /* FinanceTrackerViewModel.swift */,
+			);
+			path = FinanceTracker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -696,6 +718,8 @@
 				474CEEDB2CE8B3210002D250 /* NextButton.swift in Sources */,
 				47A579532CEB414B0061850C /* HomeViewModel.swift in Sources */,
 				474CEEDF2CE8B3210002D250 /* DefaultsService.swift in Sources */,
+				47A579912CEB89CE0061850C /* FinanceTrackerView.swift in Sources */,
+				47A579922CEB89CE0061850C /* FinanceTrackerViewModel.swift in Sources */,
 				474CEEE02CE8B3210002D250 /* ImageStorageManager.swift in Sources */,
 				474CEEE32CE8B3210002D250 /* UINavigationController+Additions.swift in Sources */,
 				474CEF122CE8BB4C0002D250 /* GradientLoaderView.swift in Sources */,

@@ -11,38 +11,46 @@ struct TabBar: View {
     @StateObject private var viewModel = TabBarViewModel()
     
     init() {
-        UITabBar.appearance().isHidden = true
+        UITabBar.appearance().barTintColor = .clear
     }
     
     var body: some View {
-        TabView(selection: $viewModel.selection) {
-            HomeView()
-                .tag(TabBarSelectionView.start.rawValue)
-                .environmentObject(viewModel)
-            
-            Text("Екран бізнес-плану")
-                .tag(TabBarSelectionView.plans.rawValue)
-            
-            Text("Фінансовий трекер")
-                .tag(TabBarSelectionView.tracker.rawValue)
-            
-            Text("Моделі масштабування")
-                .tag(TabBarSelectionView.advices.rawValue)
-            
-            Text("Цілі та завдання")
+            TabView(selection: $viewModel.selection) {
+                HomeView()
+                    .tag(TabBarSelectionView.start.rawValue)
+                    .environmentObject(viewModel)
+                
+                Text("Фінансовий трекер")
+                    .tag(TabBarSelectionView.tracker.rawValue)
+                
+                Text("Моделі масштабування")
+                    .tag(TabBarSelectionView.advices.rawValue)
+                
+                VStack {
+                    Text("Цілі та завдання")
+                    
+                    ScrollView {
+                        VStack(spacing: 10) {
+                            ForEach(0..<10) { _ in
+                                Rectangle()
+                                    .frame(height: 80)
+                            }
+                        }
+                    }
+                }
                 .tag(TabBarSelectionView.goals.rawValue)
                 .environmentObject(viewModel)
-        }
-        .overlay {
-            if viewModel.isShowTabBar {
-                VStack {
-                    Spacer()
-                    TabBarCustomView(selectedItem: $viewModel.selection)
-                        .frame(height: UIScreen.main.bounds.height * 0.1)
-                }
-                .ignoresSafeArea(edges: .bottom)
             }
-        }
+            .overlay {
+                if viewModel.isShowTabBar {
+                    VStack {
+                        Spacer()
+                        TabBarCustomView(selectedItem: $viewModel.selection)
+                            .frame(height: UIScreen.main.bounds.height * 0.095)
+                    }
+                    .ignoresSafeArea(edges: .bottom)
+                }
+            }
     }
 }
 
