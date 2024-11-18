@@ -23,6 +23,8 @@ struct FinanceTrackerView: View {
                 Asset.financeTrackerBottomBg.swiftUIImage
                     .resizable()
                     .scaledToFit()
+                
+                Spacer()
             }
             .ignoresSafeArea()
             
@@ -38,44 +40,46 @@ struct FinanceTrackerView: View {
                 
                 ScrollView {
                     BlurredContainerView {
-                        Chart {
-                            ForEach(viewModel.incomeItems.indices,
-                                    id: \.self) { index in
-                                let value = viewModel.incomeItems[index]
-                                PointMark(x: .value("index", index),
-                                          y: .value("value", value))
-                                .foregroundStyle(.green)
+                        if !viewModel.incomeItems.isEmpty || !viewModel.costItems.isEmpty {
+                            Chart {
+                                ForEach(viewModel.incomeItems.indices,
+                                        id: \.self) { index in
+                                    let value = viewModel.incomeItems[index]
+                                    PointMark(x: .value("index", index),
+                                              y: .value("value", value))
+                                    .foregroundStyle(.green)
+                                }
+                                
+                                ForEach(viewModel.incomeItems.indices, id: \.self) { index in
+                                    let value = viewModel.incomeItems[index]
+                                    LineMark(x: .value("index 1", index),
+                                             y: .value("value 1", value),
+                                             series: .value("Income", "A"))
+                                    .foregroundStyle(.green)
+                                }
+                                
+                                ForEach(viewModel.costItems.indices,
+                                        id: \.self) { index in
+                                    let value = viewModel.costItems[index]
+                                    PointMark(x: .value("index", index),
+                                              y: .value("value", value))
+                                    .foregroundStyle(.red)
+                                }
+                                
+                                ForEach(viewModel.costItems.indices, id: \.self) { index in
+                                    let value = viewModel.costItems[index]
+                                    LineMark(x: .value("index 1", index),
+                                             y: .value("value 1", value),
+                                             series: .value("Cost", "B"))
+                                    .foregroundStyle(.red)
+                                }
                             }
-                            
-                            ForEach(viewModel.incomeItems.indices, id: \.self) { index in
-                                let value = viewModel.incomeItems[index]
-                                LineMark(x: .value("index 1", index),
-                                         y: .value("value 1", value),
-                                         series: .value("Income", "A"))
-                                .foregroundStyle(.green)
+                            .chartYAxis {
+                                AxisMarks(position: .leading)
                             }
-                            
-                            ForEach(viewModel.costItems.indices,
-                                    id: \.self) { index in
-                                let value = viewModel.costItems[index]
-                                PointMark(x: .value("index", index),
-                                          y: .value("value", value))
-                                .foregroundStyle(.red)
-                            }
-//
-                            ForEach(viewModel.costItems.indices, id: \.self) { index in
-                                let value = viewModel.costItems[index]
-                                LineMark(x: .value("index 1", index),
-                                        y: .value("value 1", value),
-                                         series: .value("Cost", "B"))
-                                .foregroundStyle(.red)
-                            }
+                            .chartXAxis(.hidden)
+                            .padding(.bottom)
                         }
-                        .chartYAxis {
-                            AxisMarks(position: .leading)
-                        }
-                        .chartXAxis(.hidden)
-                        .padding(.bottom)
                         
                         VStack(spacing: 20) {
                             HStack(spacing: 20) {
@@ -110,42 +114,78 @@ struct FinanceTrackerView: View {
                                 }
                             }
                             
+                            Button {
+                                withAnimation {
+                                    viewModel.showAddItem.toggle()
+                                }
+                            } label: {
+                                HStack {
+                                    Text("Adding New Item")
+                                    Spacer()
+                                    Image(systemName: viewModel.showAddItem ? "chevron.up" : "chevron.down")
+                                        .padding(.vertical, 6)
+                                }
+                                .foregroundStyle(Color.dimGray)
+                                .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 12))
+                            }
                             
-                            HStack(spacing: 0) {
-                                Button {
-                                    
-                                } label: {
-                                    Text("Add New Income")
-                                        .lineLimit(1)
-                                        .foregroundStyle(.white)
-                                        .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 12))
-                                        .padding(.horizontal, 26)
-                                        .padding(.vertical, 16)
-                                        .background(.green)
-                                        .cornerRadius(30, corners: .allCorners)
+                            if viewModel.showAddItem {
+                                // Categories
+                                IncomeCategoryList(items: viewModel.categories) { action in
+                                    viewModel.handleCategoryList(action: action)
                                 }
                                 
-                                Spacer(minLength: 15)
-
-                                Button {
-                                    
-                                } label: {
-                                    Text("Add New Cost")
-                                        .lineLimit(1)
-                                        .foregroundStyle(.white)
-                                        .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 12))
+                                IncomeCategoryTypeList { type in
+                                    viewModel.selectedType = type
+                                }
+                                
+                                InputField(title: "Amount",
+                                           placeholder: "00",
+                                           text: $viewModel.amount)
+                                .keyboardType(.numberPad)
+                                
+                                // Save button
+                                HStack(spacing: 0) {
+                                    Button {
+                                        viewModel.saveItem()
+                                    } label: {
+                                        HStack {
+                                            Spacer()
+                                            Text("Add New Item")
+                                                .lineLimit(1)
+                                                .foregroundStyle(.white)
+                                                .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 12))
+                                                .padding(.vertical, 16)
+                                            Spacer()
+                                        }
                                         .padding(.horizontal, 26)
-                                        .padding(.vertical, 16)
-                                        .background(.red)
+                                        .background(
+                                            LiniarGradientView()
+                                        )
                                         .cornerRadius(30, corners: .allCorners)
+                                    }
                                 }
                             }
                         }
+                        .padding(.bottom, 60)
                     }
+                    .padding(.bottom, UIScreen.main.bounds.height * 0.1)
                 }
+                .scrollIndicators(.hidden)
             }
             .padding(.horizontal, 16)
         }
+        .hideKeyboardWhenTappedAround()
+        .onAppear {
+            viewModel.getItems()
+            viewModel.getCategories()
+        }
+        .sheet(isPresented: $viewModel.showAddCategory) {
+            viewModel.getCategories()
+        } content: {
+            AddIncomeCostCategoryView()
+        }
+
     }
 }
 

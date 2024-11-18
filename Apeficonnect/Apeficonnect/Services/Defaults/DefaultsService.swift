@@ -39,6 +39,40 @@ extension DefaultsService {
             }
         }
     }
+    
+    var incomeCostItems: [IncomeCostModel] {
+        get {
+            guard let data = standard.object(forKey: Keys.incomeCostItems.rawValue) as? Data,
+                  let items = try? JSONDecoder().decode([IncomeCostModel].self, from: data)
+            else {
+                return []
+            }
+            
+            return items
+        }
+        set {
+            if let data = try? JSONEncoder().encode(newValue) {
+                standard.setValue(data, forKey: Keys.incomeCostItems.rawValue)
+            }
+        }
+    }
+    
+    var incomeCostCategories: [IncomeCostCategoryModel] {
+        get {
+            guard let data = standard.object(forKey: Keys.incomeCostCategories.rawValue) as? Data,
+                  let items = try? JSONDecoder().decode([IncomeCostCategoryModel].self, from: data)
+            else {
+                return []
+            }
+            
+            return items
+        }
+        set {
+            if let data = try? JSONEncoder().encode(newValue) {
+                standard.setValue(data, forKey: Keys.incomeCostCategories.rawValue)
+            }
+        }
+    }
 }
 
 extension DefaultsService {
@@ -54,5 +88,7 @@ extension DefaultsService {
     enum Keys: String {
         case flow
         case user
+        case incomeCostItems
+        case incomeCostCategories
     }
 }

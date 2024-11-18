@@ -70,6 +70,10 @@
 		47A579842CEB5D2A0061850C /* UserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579822CEB5D2A0061850C /* UserButton.swift */; };
 		47A579912CEB89CE0061850C /* FinanceTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A5798E2CEB89CE0061850C /* FinanceTrackerView.swift */; };
 		47A579922CEB89CE0061850C /* FinanceTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A5798F2CEB89CE0061850C /* FinanceTrackerViewModel.swift */; };
+		47A579942CEBAE0F0061850C /* IncomeCostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579932CEBAE0F0061850C /* IncomeCostModel.swift */; };
+		47A5799A2CEBB6040061850C /* IncomeСategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579982CEBB6040061850C /* IncomeСategoryList.swift */; };
+		47A5799D2CEBB7200061850C /* AddIncomeCostCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A5799C2CEBB7200061850C /* AddIncomeCostCategoryView.swift */; };
+		47A5799F2CEBBCDE0061850C /* IncomeCategoryTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A5799E2CEBBCDE0061850C /* IncomeCategoryTypeList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +142,10 @@
 		47A579822CEB5D2A0061850C /* UserButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserButton.swift; sourceTree = "<group>"; };
 		47A5798E2CEB89CE0061850C /* FinanceTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceTrackerView.swift; sourceTree = "<group>"; };
 		47A5798F2CEB89CE0061850C /* FinanceTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceTrackerViewModel.swift; sourceTree = "<group>"; };
+		47A579932CEBAE0F0061850C /* IncomeCostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCostModel.swift; sourceTree = "<group>"; };
+		47A579982CEBB6040061850C /* IncomeСategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeСategoryList.swift"; sourceTree = "<group>"; };
+		47A5799C2CEBB7200061850C /* AddIncomeCostCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeCostCategoryView.swift; sourceTree = "<group>"; };
+		47A5799E2CEBBCDE0061850C /* IncomeCategoryTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategoryTypeList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				47A5794A2CE9F6EF0061850C /* UserModel.swift */,
+				47A579932CEBAE0F0061850C /* IncomeCostModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -576,10 +585,21 @@
 		47A579902CEB89CE0061850C /* FinanceTracker */ = {
 			isa = PBXGroup;
 			children = (
+				47A579992CEBB6040061850C /* Views */,
 				47A5798E2CEB89CE0061850C /* FinanceTrackerView.swift */,
 				47A5798F2CEB89CE0061850C /* FinanceTrackerViewModel.swift */,
 			);
 			path = FinanceTracker;
+			sourceTree = "<group>";
+		};
+		47A579992CEBB6040061850C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47A579982CEBB6040061850C /* IncomeСategoryList.swift */,
+				47A5799C2CEBB7200061850C /* AddIncomeCostCategoryView.swift */,
+				47A5799E2CEBBCDE0061850C /* IncomeCategoryTypeList.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -692,12 +712,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				474CEEBB2CE8B3210002D250 /* Images.generated.swift in Sources */,
+				47A5799D2CEBB7200061850C /* AddIncomeCostCategoryView.swift in Sources */,
 				474CEEBD2CE8B3210002D250 /* OnboardingViewModel.swift in Sources */,
+				47A579942CEBAE0F0061850C /* IncomeCostModel.swift in Sources */,
 				474CEEBE2CE8B3210002D250 /* SwiftUIViewWebView.swift in Sources */,
+				47A5799A2CEBB6040061850C /* IncomeСategoryList.swift in Sources */,
 				47A579642CEB487F0061850C /* ProfileView.swift in Sources */,
 				47A579652CEB487F0061850C /* ProfileViewModel.swift in Sources */,
 				47A579732CEB4EA40061850C /* LiniarGradientView.swift in Sources */,
 				474CEEC02CE8B3210002D250 /* FileManagerService.swift in Sources */,
+				47A5799F2CEBBCDE0061850C /* IncomeCategoryTypeList.swift in Sources */,
 				474CEEC22CE8B3210002D250 /* Fonts.generated.swift in Sources */,
 				474CEEC32CE8B3210002D250 /* String+Additions.swift in Sources */,
 				474CEEC52CE8B3210002D250 /* TabBarCustomView.swift in Sources */,

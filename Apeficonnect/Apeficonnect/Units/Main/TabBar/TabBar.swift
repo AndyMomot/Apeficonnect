@@ -11,7 +11,7 @@ struct TabBar: View {
     @StateObject private var viewModel = TabBarViewModel()
     
     init() {
-        UITabBar.appearance().barTintColor = .clear
+        UITabBar.appearance().isHidden = true
     }
     
     var body: some View {
@@ -20,7 +20,7 @@ struct TabBar: View {
                     .tag(TabBarSelectionView.start.rawValue)
                     .environmentObject(viewModel)
                 
-                Text("Фінансовий трекер")
+                FinanceTrackerView()
                     .tag(TabBarSelectionView.tracker.rawValue)
                 
                 Text("Моделі масштабування")
@@ -46,7 +46,7 @@ struct TabBar: View {
                     VStack {
                         Spacer()
                         TabBarCustomView(selectedItem: $viewModel.selection)
-                            .frame(height: UIScreen.main.bounds.height * 0.095)
+                            .frame(height: UIScreen.main.bounds.height * 0.1)
                     }
                     .ignoresSafeArea(edges: .bottom)
                 }

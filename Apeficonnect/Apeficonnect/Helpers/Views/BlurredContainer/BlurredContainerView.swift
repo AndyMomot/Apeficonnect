@@ -14,7 +14,7 @@ struct BlurredContainerView<C: View>: View {
         self.content = content()
     }
     
-    let opacity: Double = 0.4
+    let opacity: Double = 0.3
     
     var body: some View {
         content
@@ -22,7 +22,7 @@ struct BlurredContainerView<C: View>: View {
             .background(
                 ZStack {
                     BlurView(style: .light)
-                        .opacity(0.95)
+                        .opacity(0.9)
                     
                     LinearGradient(
                         gradient: Gradient(colors: [
