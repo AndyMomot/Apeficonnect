@@ -16,7 +16,7 @@ struct TabBar: View {
     
     var body: some View {
         TabView(selection: $viewModel.selection) {
-            Text("Стартовий екран")
+            HomeView()
                 .tag(TabBarSelectionView.start.rawValue)
                 .environmentObject(viewModel)
             
@@ -34,7 +34,7 @@ struct TabBar: View {
                 .environmentObject(viewModel)
         }
         .overlay {
-            if viewModel.showTabBar {
+            if viewModel.isShowTabBar {
                 VStack {
                     Spacer()
                     TabBarCustomView(selectedItem: $viewModel.selection)

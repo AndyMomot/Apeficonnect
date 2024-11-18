@@ -12,11 +12,7 @@ extension OnboardingView {
         @Published var showPrivacyPolicy = false
         let privacyPolicyURL = URL(string: "https://google.com")
         
-        func showMainFlow(rootViewModel: RootContentView.RootContentViewModel) {
-            DispatchQueue.main.async {
-                rootViewModel.setFlow(.main)
-            }
-        }
+        @Published var showAuth = false
     }
     
     enum OnboardingItem: Int, CaseIterable {

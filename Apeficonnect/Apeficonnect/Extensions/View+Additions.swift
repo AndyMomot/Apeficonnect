@@ -17,6 +17,26 @@ extension View {
             self.hideKeyboard()
         }
     }
+    
+    func share(url: String) {
+        let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let rootViewController = windowScene.windows.first?.rootViewController {
+            
+            // For iPads, you need to set the sourceView and sourceRect for the popover
+            if let popoverController = activityController.popoverPresentationController {
+                popoverController.sourceView = rootViewController.view // Set to the root view or any view you want to anchor the popover
+                popoverController.sourceRect = CGRect(x: rootViewController.view.bounds.midX,
+                                                      y: rootViewController.view.bounds.midY,
+                                                      width: 0,
+                                                      height: 0) // Center of the view
+                popoverController.permittedArrowDirections = [] // No arrow needed
+            }
+            
+            rootViewController.present(activityController, animated: true, completion: nil)
+        }
+    }
 }
 
 struct RoundedCorner: Shape {

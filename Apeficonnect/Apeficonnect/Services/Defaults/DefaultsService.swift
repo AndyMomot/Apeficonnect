@@ -23,60 +23,20 @@ extension DefaultsService {
         }
     }
     
-    var bicycles: [BicycleModel] {
+    var user: UserModel? {
         get {
-            guard let data = standard.object(forKey: Keys.bicycles.rawValue) as? Data else {
-                return []
+            guard let data = standard.object(forKey: Keys.user.rawValue) as? Data,
+                  let user = try? JSONDecoder().decode(UserModel.self, from: data)
+            else {
+                return nil
             }
-            let items = try? JSONDecoder().decode([BicycleModel].self, from: data)
-            return items ?? []
+            
+            return user
         }
         set {
             if let data = try? JSONEncoder().encode(newValue) {
-                standard.setValue(data, forKey: Keys.bicycles.rawValue)
+                standard.setValue(data, forKey: Keys.user.rawValue)
             }
-        }
-    }
-    
-    var calculateRentResults: [CalculateRentResultModel] {
-        get {
-            guard let data = standard.object(forKey: Keys.calculateRentResults.rawValue) as? Data else {
-                return []
-            }
-            let items = try? JSONDecoder().decode([CalculateRentResultModel].self, from: data)
-            return items ?? []
-        }
-        set {
-            if let data = try? JSONEncoder().encode(newValue) {
-                standard.setValue(data, forKey: Keys.calculateRentResults.rawValue)
-            }
-        }
-    }
-    
-    var compleatedPolls: Bool {
-        get {
-            standard.bool(forKey: Keys.compleatedPolls.rawValue)
-        }
-        set {
-            standard.set(newValue, forKey: Keys.compleatedPolls.rawValue)
-        }
-    }
-    
-    var isBikeReturnReminder: Bool {
-        get {
-            standard.bool(forKey: Keys.isBikeReturnReminder.rawValue)
-        }
-        set {
-            standard.set(newValue, forKey: Keys.isBikeReturnReminder.rawValue)
-        }
-    }
-    
-    var isNotificationSounds: Bool {
-        get {
-            standard.bool(forKey: Keys.isNotificationSounds.rawValue)
-        }
-        set {
-            standard.set(newValue, forKey: Keys.isNotificationSounds.rawValue)
         }
     }
 }
@@ -93,11 +53,6 @@ extension DefaultsService {
 extension DefaultsService {
     enum Keys: String {
         case flow
-        case bicycles
-        case calculateRentResults
-        case compleatedPolls
-        
-        case isBikeReturnReminder
-        case isNotificationSounds
+        case user
     }
 }

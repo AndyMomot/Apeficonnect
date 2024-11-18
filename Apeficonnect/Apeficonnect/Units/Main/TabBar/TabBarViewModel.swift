@@ -10,7 +10,13 @@ import Foundation
 extension TabBar {
     final class TabBarViewModel: ObservableObject {
         @Published var selection = TabBarSelectionView.start.rawValue
-        @Published var showTabBar = true
+        @Published var isShowTabBar = true
+        
+        func showTabBar(_ show: Bool) {
+            DispatchQueue.main.async { [weak self] in
+                self?.isShowTabBar = show
+            }
+        }
     }
 }
 

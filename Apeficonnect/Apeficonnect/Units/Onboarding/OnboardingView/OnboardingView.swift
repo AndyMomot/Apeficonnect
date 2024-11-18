@@ -71,7 +71,7 @@ struct OnboardingView: View {
                             }
                             
                             if item == .third {
-                                viewModel.showMainFlow(rootViewModel: rootViewModel)
+                                viewModel.showAuth.toggle()
                             }
                         }
                         .frame(height: 48)
@@ -107,6 +107,9 @@ struct OnboardingView: View {
         }
         .sheet(isPresented: $viewModel.showPrivacyPolicy) {
             SwiftUIViewWebView(url: viewModel.privacyPolicyURL)
+        }
+        .fullScreenCover(isPresented: $viewModel.showAuth) {
+            AuthView()
         }
     }
 }
