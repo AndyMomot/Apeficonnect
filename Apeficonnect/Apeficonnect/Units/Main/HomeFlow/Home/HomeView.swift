@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import Charts
 
 struct HomeView: View {
     @StateObject private var viewModel = ViewModel()
+    
+    private var bounds: CGRect {
+        UIScreen.main.bounds
+    }
     
     var body: some View {
         NavigationStack {
@@ -47,11 +52,55 @@ struct HomeView: View {
                     }
                     
                     ScrollView {
-                        
+                        VStack(spacing: 20) {
+                            HStack {
+                                Text("Income and Expenditure Statistics for the Period")
+                                    .foregroundStyle(.white)
+                                    .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
+                                Spacer()
+                            }
+                            
+                            BlurredContainerView {
+                                VStack(spacing: 20) {
+                                    HStack {
+                                        MenuPicker(
+                                            selectedItem: $viewModel.selectedYear,
+                                            items: viewModel.yearsList)
+                                        .frame(width: bounds.width * 0.3)
+                                        
+                                        Spacer()
+                                        
+                                        MenuPicker(
+                                            selectedItem: $viewModel.selectedMonth,
+                                            items: viewModel.monthList)
+                                        .frame(width: bounds.width * 0.3)
+                                    }
+                                    
+                                    if viewModel.incomeItems.isEmpty && viewModel.costItems.isEmpty {
+                                        Text("No data")
+                                    } else {
+                                        IncomeCostChartView(
+                                            incomeItems: viewModel.incomeItems,
+                                            costItems: viewModel.costItems
+                                        )
+                                    }
+                                }
+                            }
+                        }
                     }
                     .scrollIndicators(.hidden)
                 }
                 .padding(.horizontal, 16)
+            }
+            .onAppear {
+                viewModel.setInitialPickerValue()
+                viewModel.getItems()
+            }
+            .onChange(of: viewModel.selectedMonth) { _ in
+                viewModel.getItems()
+            }
+            .onChange(of: viewModel.selectedYear) { _ in
+                viewModel.getItems()
             }
             .navigationDestination(isPresented: $viewModel.showProfile) {
                 ProfileView()

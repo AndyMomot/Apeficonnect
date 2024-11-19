@@ -9,6 +9,8 @@ import Foundation
 
 struct IncomeCostModel: Codable, Identifiable {
     private(set) var id = UUID().uuidString
+    private(set) var date = Date()
+    
     var category: IncomeCostCategoryModel
     var type: IncomeCostType
     var amount: Int
