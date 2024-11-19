@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     @StateObject private var viewModel = ViewModel()
     @EnvironmentObject private var tabBarVM: TabBar.TabBarViewModel
+    @EnvironmentObject private var rootVM: RootContentView.RootContentViewModel
     @Environment(\.dismiss) private var dismiss
     
     private var bounds: CGRect {
@@ -120,24 +121,51 @@ struct ProfileView: View {
                                         }
                                     }
                             }
+                            
+                            UserButton(
+                                image: Image(systemName: "arrow.up.trash.fill"),
+                                title: "Clear cache") {
+                                    withAnimation {
+                                        viewModel.showClearCacheAlert = true
+                                    }
+                                }
                         }
                     }
                 }
                 .scrollIndicators(.hidden)
             }
             .padding(.horizontal, 24)
+            
+            if viewModel.showLoader {
+                ProgressView()
+            }
+        }
+        .alert("Deleting data", isPresented: $viewModel.showClearCacheAlert) {
+            Button("Cancel", role: .cancel) {}
+            
+            Button("Delete", role: .destructive) {
+                withAnimation { viewModel.showLoader = true }
+                viewModel.clearCache {
+                    withAnimation {
+                        viewModel.showLoader = false
+                        rootVM.setFlow(.onboarding)
+                    }
+                }
+            }
+        } message: {
+            Text("Are you sure you want to erase the data?")
         }
         .navigationBarBackButtonHidden()
         .onAppear {
             withAnimation {
                 viewModel.getUser()
-                tabBarVM.showTabBar(false)
+                //                tabBarVM.showTabBar(false)
             }
         }
         .onDisappear {
             viewModel.saveUserImage()
             withAnimation {
-                tabBarVM.showTabBar(true)
+                //                tabBarVM.showTabBar(true)
             }
         }
         .sheet(isPresented: $viewModel.showImagePicker) {

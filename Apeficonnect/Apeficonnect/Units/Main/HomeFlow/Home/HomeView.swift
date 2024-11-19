@@ -86,7 +86,12 @@ struct HomeView: View {
                                     }
                                 }
                             }
+                            
+                            if !viewModel.incomeCostItems.isEmpty {
+                                OperationsView(items: viewModel.incomeCostItems)
+                            }
                         }
+                        .padding(.bottom, bounds.height * 0.1)
                     }
                     .scrollIndicators(.hidden)
                 }

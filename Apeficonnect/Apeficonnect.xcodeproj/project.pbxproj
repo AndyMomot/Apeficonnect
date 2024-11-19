@@ -76,6 +76,8 @@
 		47A5799F2CEBBCDE0061850C /* IncomeCategoryTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A5799E2CEBBCDE0061850C /* IncomeCategoryTypeList.swift */; };
 		47A579A92CEC948F0061850C /* MenuPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579A82CEC948F0061850C /* MenuPicker.swift */; };
 		47A579AC2CEC9ABF0061850C /* IncomeCostChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579AB2CEC9ABF0061850C /* IncomeCostChartView.swift */; };
+		47A579AE2CECAF460061850C /* OperationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579AD2CECAF460061850C /* OperationsView.swift */; };
+		47A579B02CECAFDA0061850C /* OperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579AF2CECAFDA0061850C /* OperationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +152,8 @@
 		47A5799E2CEBBCDE0061850C /* IncomeCategoryTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategoryTypeList.swift; sourceTree = "<group>"; };
 		47A579A82CEC948F0061850C /* MenuPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPicker.swift; sourceTree = "<group>"; };
 		47A579AB2CEC9ABF0061850C /* IncomeCostChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCostChartView.swift; sourceTree = "<group>"; };
+		47A579AD2CECAF460061850C /* OperationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsView.swift; sourceTree = "<group>"; };
+		47A579AF2CECAFDA0061850C /* OperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -612,6 +616,8 @@
 			children = (
 				47A579A82CEC948F0061850C /* MenuPicker.swift */,
 				47A579AB2CEC9ABF0061850C /* IncomeCostChartView.swift */,
+				47A579AD2CECAF460061850C /* OperationsView.swift */,
+				47A579AF2CECAFDA0061850C /* OperationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -738,6 +744,7 @@
 				47A579A92CEC948F0061850C /* MenuPicker.swift in Sources */,
 				47A5799F2CEBBCDE0061850C /* IncomeCategoryTypeList.swift in Sources */,
 				474CEEC22CE8B3210002D250 /* Fonts.generated.swift in Sources */,
+				47A579AE2CECAF460061850C /* OperationsView.swift in Sources */,
 				474CEEC32CE8B3210002D250 /* String+Additions.swift in Sources */,
 				474CEEC52CE8B3210002D250 /* TabBarCustomView.swift in Sources */,
 				474CEEC82CE8B3210002D250 /* AppDelegate.swift in Sources */,
@@ -763,6 +770,7 @@
 				47A579AC2CEC9ABF0061850C /* IncomeCostChartView.swift in Sources */,
 				474CEEE32CE8B3210002D250 /* UINavigationController+Additions.swift in Sources */,
 				474CEF122CE8BB4C0002D250 /* GradientLoaderView.swift in Sources */,
+				47A579B02CECAFDA0061850C /* OperationCell.swift in Sources */,
 				474CEEE62CE8B3210002D250 /* NotificationManager.swift in Sources */,
 				474CEEE72CE8B3210002D250 /* View+Additions.swift in Sources */,
 				47A5797B2CEB507A0061850C /* BlurView.swift in Sources */,

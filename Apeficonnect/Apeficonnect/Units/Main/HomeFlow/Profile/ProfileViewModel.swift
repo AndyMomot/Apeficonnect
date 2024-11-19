@@ -14,6 +14,8 @@ extension ProfileView {
         @Published var image = Asset.profilePlaceholder.image
         @Published var nickName = "User"
         @Published var showImagePicker = false
+        @Published var showLoader = false
+        @Published var showClearCacheAlert = false
         
         var appUrl = "https://apps.apple.com/ua/app/testflight/id899247664?l=uk"
         
@@ -60,6 +62,17 @@ extension ProfileView {
                       let userId =  DefaultsService.shared.user?.id,
                       let data = self.image.jpegData(compressionQuality: 1) else { return }
                 ImageStorageManager().saveImage(data: data, for: userId)
+            }
+        }
+        
+        func clearCache(completion: @escaping () -> Void) {
+            DispatchQueue.global().async { [weak self] in
+                DefaultsService.shared.removeAll()
+                FileManagerService().removeAllFiles()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    completion()
+                }
             }
         }
     }

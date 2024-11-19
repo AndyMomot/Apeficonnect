@@ -18,8 +18,6 @@ struct IncomeCostChartView: View {
     var body: some View {
         VStack(spacing: 20) {
             Chart {
-                
-                
                 ForEach(costItems.indices, id: \.self) { index in
                     let value = costItems[index]
                     BarMark(x: .value("index 1", index),

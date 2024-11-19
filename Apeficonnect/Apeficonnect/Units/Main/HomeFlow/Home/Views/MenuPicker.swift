@@ -14,12 +14,20 @@ struct MenuPicker: View {
     var body: some View {
         Menu {
             ForEach(items, id: \.self) { item in
+                let isSelected = item == selectedItem
+                
                 Button {
                     selectedItem = item
                 } label: {
-                    Text("\(String(describing: item))")
-                        .foregroundStyle(Colors.charcoalBlack.swiftUIColor)
-                        .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 14))
+                    HStack {
+                        if isSelected {
+                            Image(systemName: "checkmark")
+                        }
+                        
+                        Text("\(String(describing: item))")
+                            .foregroundStyle(Colors.charcoalBlack.swiftUIColor)
+                            .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 14))
+                    }
                 }
             }
         } label: {

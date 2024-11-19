@@ -19,6 +19,7 @@ extension HomeView {
         
         @Published var incomeItems: [Int] = []
         @Published var costItems: [Int] = []
+        @Published var incomeCostItems:  [IncomeCostModel] = []
         
         // MARK: Computed properties
         var yearsList: [String] {
@@ -75,32 +76,22 @@ extension HomeView {
             DispatchQueue.global().async { [weak self] in
                 guard let self, let selectedDate = self.getSelectedDate() else { return }
                 
-                let categories = DefaultsService.shared.incomeCostItems
                 let calendar = Calendar.current
                 let filterYear = calendar.component(.year, from: selectedDate)
                 let filterMonth = calendar.component(.month, from: selectedDate)
                 
-                let incomeItems = categories.filter {
+                let items = DefaultsService.shared.incomeCostItems.filter {
                     let modelYear = calendar.component(.year, from: $0.date)
                     let modelMonth = calendar.component(.month, from: $0.date)
-                    
-                    return $0.type == .income
-                    && modelYear == filterYear
-                    && modelMonth == filterMonth
-                }.map { $0.amount }
-                
-                let costItems = categories.filter {
-                    let modelYear = calendar.component(.year, from: $0.date)
-                    let modelMonth = calendar.component(.month, from: $0.date)
-                    
-                    return $0.type == .cost
-                    && modelYear == filterYear
-                    && modelMonth == filterMonth
-                }.map { $0.amount }
+                    return modelYear == filterYear && modelMonth == filterMonth
+                }
+                let incomeItems = items.filter { $0.type == .income }.map { $0.amount }
+                let costItems = items.filter { $0.type == .cost }.map { $0.amount }
                 
                 DispatchQueue.main.async { [self] in
                     self.incomeItems = incomeItems
                     self.costItems = costItems
+                    self.incomeCostItems = items
                 }
             }
         }
