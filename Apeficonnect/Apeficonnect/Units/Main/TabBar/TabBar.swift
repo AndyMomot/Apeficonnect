@@ -15,42 +15,31 @@ struct TabBar: View {
     }
     
     var body: some View {
-            TabView(selection: $viewModel.selection) {
-                HomeView()
-                    .tag(TabBarSelectionView.start.rawValue)
-                    .environmentObject(viewModel)
-                
-                FinanceTrackerView()
-                    .tag(TabBarSelectionView.tracker.rawValue)
-                
-                AdvicesView()
-                    .tag(TabBarSelectionView.advices.rawValue)
-                
-                VStack {
-                    Text("Цілі та завдання")
-                    
-                    ScrollView {
-                        VStack(spacing: 10) {
-                            ForEach(0..<10) { _ in
-                                Rectangle()
-                                    .frame(height: 80)
-                            }
-                        }
-                    }
-                }
+        TabView(selection: $viewModel.selection) {
+            HomeView()
+                .tag(TabBarSelectionView.start.rawValue)
+                .environmentObject(viewModel)
+            
+            FinanceTrackerView()
+                .tag(TabBarSelectionView.tracker.rawValue)
+            
+            AdvicesView()
+                .tag(TabBarSelectionView.advices.rawValue)
+            
+            GoalsView()
                 .tag(TabBarSelectionView.goals.rawValue)
                 .environmentObject(viewModel)
-            }
-            .overlay {
-                if viewModel.isShowTabBar {
-                    VStack {
-                        Spacer()
-                        TabBarCustomView(selectedItem: $viewModel.selection)
-                            .frame(height: UIScreen.main.bounds.height * 0.1)
-                    }
-                    .ignoresSafeArea(edges: .bottom)
+        }
+        .overlay {
+            if viewModel.isShowTabBar {
+                VStack {
+                    Spacer()
+                    TabBarCustomView(selectedItem: $viewModel.selection)
+                        .frame(height: UIScreen.main.bounds.height * 0.1)
                 }
+                .ignoresSafeArea(edges: .bottom)
             }
+        }
     }
 }
 

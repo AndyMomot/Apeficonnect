@@ -33,31 +33,9 @@ struct GradientLoaderView: View {
                         )
                     )
                 
-                // Progress Bar
-                ZStack(alignment: .leading) {
-                    // Background Bar
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.gray.opacity(0.2))
-                        .frame(height: 20)
-                    
-                    // Animated Gradient Bar
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    Color.blue,
-                                    Color.purple,
-                                    Color.pink,
-                                    Color.orange]),
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
-                        .frame(width: min(progress * geo.size.width,
-                                          geo.size.width),
-                               height: 20)
-                        .animation(.linear(duration: 1.0), value: progress)
-                }
+                ProgressProgressBar(width: min(progress * geo.size.width,
+                                               geo.size.width))
+                .animation(.linear(duration: 1.0), value: progress)
                 .frame(height: 20)
                 .onAppear {
                     startTimer()

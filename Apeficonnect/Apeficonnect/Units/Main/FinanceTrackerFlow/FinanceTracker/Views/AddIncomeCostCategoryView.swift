@@ -13,8 +13,8 @@ struct AddIncomeCostCategoryView: View {
     
     var body: some View {
         ZStack {
-//            Colors.paleAsh.swiftUIColor
-//                .ignoresSafeArea()
+            Colors.paleAsh.swiftUIColor
+                .ignoresSafeArea()
             
             LiniarGradientView()
                 .ignoresSafeArea()

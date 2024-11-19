@@ -159,13 +159,13 @@ struct ProfileView: View {
         .onAppear {
             withAnimation {
                 viewModel.getUser()
-                //                tabBarVM.showTabBar(false)
+                tabBarVM.showTabBar(false)
             }
         }
         .onDisappear {
             viewModel.saveUserImage()
             withAnimation {
-                //                tabBarVM.showTabBar(true)
+                tabBarVM.showTabBar(true)
             }
         }
         .sheet(isPresented: $viewModel.showImagePicker) {

@@ -73,6 +73,23 @@ extension DefaultsService {
             }
         }
     }
+    
+    var goals: [GoalModel] {
+        get {
+            guard let data = standard.object(forKey: Keys.goals.rawValue) as? Data,
+                  let items = try? JSONDecoder().decode([GoalModel].self, from: data)
+            else {
+                return []
+            }
+            
+            return items
+        }
+        set {
+            if let data = try? JSONEncoder().encode(newValue) {
+                standard.setValue(data, forKey: Keys.goals.rawValue)
+            }
+        }
+    }
 }
 
 extension DefaultsService {
@@ -90,5 +107,6 @@ extension DefaultsService {
         case user
         case incomeCostItems
         case incomeCostCategories
+        case goals
     }
 }

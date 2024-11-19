@@ -27,7 +27,7 @@ struct InputField: View {
             .foregroundStyle(.dimGray)
             .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
             .padding(.horizontal, 12)
-            .padding(.vertical, 26)
+            .padding(.vertical, 16)
             .overlay {
                 RoundedRectangle(cornerRadius: 15)
                     .stroke(Color.dimGray, lineWidth: 1)

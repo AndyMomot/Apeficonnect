@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -83,6 +83,16 @@
 		47A579BC2CECD3670061850C /* StrategyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579BB2CECD3670061850C /* StrategyCell.swift */; };
 		47A579BE2CECDB1D0061850C /* StrategyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579BD2CECDB1D0061850C /* StrategyInfoView.swift */; };
 		47A579C02CECDC340061850C /* StrategyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579BF2CECDC340061850C /* StrategyPreview.swift */; };
+		47A579CB2CECDF5B0061850C /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579C72CECDF5B0061850C /* GoalsView.swift */; };
+		47A579CC2CECDF5B0061850C /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579C82CECDF5B0061850C /* GoalsViewModel.swift */; };
+		47A579CE2CECE1E40061850C /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579CD2CECE1E40061850C /* GoalModel.swift */; };
+		47A579D72CECE8C00061850C /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579D42CECE8C00061850C /* AddGoalView.swift */; };
+		47A579D82CECE8C00061850C /* AddGoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579D52CECE8C00061850C /* AddGoalViewModel.swift */; };
+		47A579DC2CECEB5D0061850C /* AddedTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579DB2CECEB5D0061850C /* AddedTaskCell.swift */; };
+		47A579E42CECF4180061850C /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579E22CECF4180061850C /* GoalCell.swift */; };
+		47A579E62CECF6B10061850C /* GoalDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579E52CECF6B10061850C /* GoalDetailsCell.swift */; };
+		47A579E82CECF9800061850C /* ProgressProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579E72CECF9800061850C /* ProgressProgressBar.swift */; };
+		47A579EA2CECFC710061850C /* TaskCheckBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A579E92CECFC710061850C /* TaskCheckBoxCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +174,16 @@
 		47A579BB2CECD3670061850C /* StrategyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyCell.swift; sourceTree = "<group>"; };
 		47A579BD2CECDB1D0061850C /* StrategyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyInfoView.swift; sourceTree = "<group>"; };
 		47A579BF2CECDC340061850C /* StrategyPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyPreview.swift; sourceTree = "<group>"; };
+		47A579C72CECDF5B0061850C /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
+		47A579C82CECDF5B0061850C /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
+		47A579CD2CECE1E40061850C /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
+		47A579D42CECE8C00061850C /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
+		47A579D52CECE8C00061850C /* AddGoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalViewModel.swift; sourceTree = "<group>"; };
+		47A579DB2CECEB5D0061850C /* AddedTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTaskCell.swift; sourceTree = "<group>"; };
+		47A579E22CECF4180061850C /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
+		47A579E52CECF6B10061850C /* GoalDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailsCell.swift; sourceTree = "<group>"; };
+		47A579E72CECF9800061850C /* ProgressProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressProgressBar.swift; sourceTree = "<group>"; };
+		47A579E92CECFC710061850C /* TaskCheckBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCheckBoxCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +359,7 @@
 			children = (
 				47A5794A2CE9F6EF0061850C /* UserModel.swift */,
 				47A579932CEBAE0F0061850C /* IncomeCostModel.swift */,
+				47A579CD2CECE1E40061850C /* GoalModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -439,6 +460,7 @@
 				47A5794F2CE9FB830061850C /* HomeFlow */,
 				47A579862CEB87410061850C /* FinanceTrackerFlow */,
 				47A579B22CECD13B0061850C /* AdvicesFlow */,
+				47A579CA2CECDF5B0061850C /* GoalsFlow */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -512,6 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				474CEF102CE8BB4C0002D250 /* GradientLoaderView.swift */,
+				47A579E72CECF9800061850C /* ProgressProgressBar.swift */,
 			);
 			path = GradientLoaderView;
 			sourceTree = "<group>";
@@ -661,6 +684,53 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		47A579C92CECDF5B0061850C /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				47A579E32CECF4180061850C /* Views */,
+				47A579C72CECDF5B0061850C /* GoalsView.swift */,
+				47A579C82CECDF5B0061850C /* GoalsViewModel.swift */,
+			);
+			path = Goals;
+			sourceTree = "<group>";
+		};
+		47A579CA2CECDF5B0061850C /* GoalsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				47A579C92CECDF5B0061850C /* Goals */,
+				47A579D62CECE8C00061850C /* AddGoal */,
+			);
+			path = GoalsFlow;
+			sourceTree = "<group>";
+		};
+		47A579D62CECE8C00061850C /* AddGoal */ = {
+			isa = PBXGroup;
+			children = (
+				47A579DA2CECEB510061850C /* Views */,
+				47A579D42CECE8C00061850C /* AddGoalView.swift */,
+				47A579D52CECE8C00061850C /* AddGoalViewModel.swift */,
+			);
+			path = AddGoal;
+			sourceTree = "<group>";
+		};
+		47A579DA2CECEB510061850C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47A579DB2CECEB5D0061850C /* AddedTaskCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		47A579E32CECF4180061850C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47A579E22CECF4180061850C /* GoalCell.swift */,
+				47A579E52CECF6B10061850C /* GoalDetailsCell.swift */,
+				47A579E92CECFC710061850C /* TaskCheckBoxCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -700,6 +770,7 @@
 				};
 			};
 			buildConfigurationList = 474CEE052CE8B29E0002D250 /* Build configuration list for PBXProject "Apeficonnect" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -708,7 +779,6 @@
 			);
 			mainGroup = 474CEE012CE8B29E0002D250;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 474CEE0B2CE8B29E0002D250 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -785,6 +855,7 @@
 				47A5799F2CEBBCDE0061850C /* IncomeCategoryTypeList.swift in Sources */,
 				474CEEC22CE8B3210002D250 /* Fonts.generated.swift in Sources */,
 				47A579AE2CECAF460061850C /* OperationsView.swift in Sources */,
+				47A579DC2CECEB5D0061850C /* AddedTaskCell.swift in Sources */,
 				474CEEC32CE8B3210002D250 /* String+Additions.swift in Sources */,
 				474CEEC52CE8B3210002D250 /* TabBarCustomView.swift in Sources */,
 				474CEEC82CE8B3210002D250 /* AppDelegate.swift in Sources */,
@@ -796,9 +867,13 @@
 				47A579512CEB41430061850C /* HomeView.swift in Sources */,
 				474CEECB2CE8B3210002D250 /* SceneDelegate.swift in Sources */,
 				474CEECD2CE8B3210002D250 /* Double+Additions.swift in Sources */,
+				47A579CB2CECDF5B0061850C /* GoalsView.swift in Sources */,
+				47A579CC2CECDF5B0061850C /* GoalsViewModel.swift in Sources */,
 				474CEED02CE8B3210002D250 /* Date+Additions.swift in Sources */,
 				47A579BE2CECDB1D0061850C /* StrategyInfoView.swift in Sources */,
+				47A579CE2CECE1E40061850C /* GoalModel.swift in Sources */,
 				474CEED52CE8B3210002D250 /* TabBar.swift in Sources */,
+				47A579E82CECF9800061850C /* ProgressProgressBar.swift in Sources */,
 				47A5795B2CEB46F50061850C /* NavigationTitleView.swift in Sources */,
 				474CEED72CE8B3210002D250 /* ImagePicker.swift in Sources */,
 				474CEED82CE8B3210002D250 /* RootViewController.swift in Sources */,
@@ -809,9 +884,12 @@
 				47A579912CEB89CE0061850C /* FinanceTrackerView.swift in Sources */,
 				47A579922CEB89CE0061850C /* FinanceTrackerViewModel.swift in Sources */,
 				47A579BC2CECD3670061850C /* StrategyCell.swift in Sources */,
+				47A579EA2CECFC710061850C /* TaskCheckBoxCell.swift in Sources */,
 				474CEEE02CE8B3210002D250 /* ImageStorageManager.swift in Sources */,
 				47A579AC2CEC9ABF0061850C /* IncomeCostChartView.swift in Sources */,
 				474CEEE32CE8B3210002D250 /* UINavigationController+Additions.swift in Sources */,
+				47A579D72CECE8C00061850C /* AddGoalView.swift in Sources */,
+				47A579D82CECE8C00061850C /* AddGoalViewModel.swift in Sources */,
 				474CEF122CE8BB4C0002D250 /* GradientLoaderView.swift in Sources */,
 				47A579B02CECAFDA0061850C /* OperationCell.swift in Sources */,
 				47A579C02CECDC340061850C /* StrategyPreview.swift in Sources */,
@@ -824,9 +902,11 @@
 				474CEEF02CE8B3210002D250 /* PreloaderView.swift in Sources */,
 				47A5794B2CE9F6EF0061850C /* UserModel.swift in Sources */,
 				474CEEF42CE8B3210002D250 /* RootContentViewModel.swift in Sources */,
+				47A579E42CECF4180061850C /* GoalCell.swift in Sources */,
 				474CEEF72CE8B3210002D250 /* CircularProgressBar.swift in Sources */,
 				47A579842CEB5D2A0061850C /* UserButton.swift in Sources */,
 				474CEEF82CE8B3210002D250 /* SegmentedControl.swift in Sources */,
+				47A579E62CECF6B10061850C /* GoalDetailsCell.swift in Sources */,
 				474CEEF92CE8B3210002D250 /* RootContentView.swift in Sources */,
 				474CEEFB2CE8B3210002D250 /* BackButton.swift in Sources */,
 				47A5796B2CEB49470061850C /* BlurredContainerView.swift in Sources */,
