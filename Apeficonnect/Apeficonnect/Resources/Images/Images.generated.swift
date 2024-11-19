@@ -22,6 +22,10 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
+  internal static let advicesBg = ImageAsset(name: "advicesBg")
+  internal static let aggressive = ImageAsset(name: "aggressive ")
+  internal static let balanced = ImageAsset(name: "balanced")
+  internal static let conservative = ImageAsset(name: "conservative")
   internal static let cost = ImageAsset(name: "cost")
   internal static let financeTrackerBg = ImageAsset(name: "financeTrackerBg")
   internal static let financeTrackerBottomBg = ImageAsset(name: "financeTrackerBottomBg")

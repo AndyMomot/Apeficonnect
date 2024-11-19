@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "conservative.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

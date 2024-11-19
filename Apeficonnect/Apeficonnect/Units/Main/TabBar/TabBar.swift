@@ -23,7 +23,7 @@ struct TabBar: View {
                 FinanceTrackerView()
                     .tag(TabBarSelectionView.tracker.rawValue)
                 
-                Text("Моделі масштабування")
+                AdvicesView()
                     .tag(TabBarSelectionView.advices.rawValue)
                 
                 VStack {

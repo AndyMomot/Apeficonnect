@@ -66,7 +66,7 @@ extension ProfileView {
         }
         
         func clearCache(completion: @escaping () -> Void) {
-            DispatchQueue.global().async { [weak self] in
+            DispatchQueue.global().async {
                 DefaultsService.shared.removeAll()
                 FileManagerService().removeAllFiles()
                 

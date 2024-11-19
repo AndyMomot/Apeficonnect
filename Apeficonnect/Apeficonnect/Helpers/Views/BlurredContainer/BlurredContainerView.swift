@@ -9,12 +9,20 @@ import SwiftUI
 
 struct BlurredContainerView<C: View>: View {
     var content: C
+    var blurOpacity: CGFloat = 0.9
+    var colorOpacity: CGFloat = 0.3
+    
+    init(blurOpacity: CGFloat = 0.9,
+         colorOpacity: CGFloat = 0.3,
+         @ViewBuilder content: () -> C) {
+        self.blurOpacity = blurOpacity
+        self.colorOpacity = colorOpacity
+        self.content = content()
+    }
     
     init(@ViewBuilder content: () -> C) {
         self.content = content()
     }
-    
-    let opacity: Double = 0.3
     
     var body: some View {
         content
@@ -22,14 +30,14 @@ struct BlurredContainerView<C: View>: View {
             .background(
                 ZStack {
                     BlurView(style: .light)
-                        .opacity(0.9)
+                        .opacity(blurOpacity)
                     
                     LinearGradient(
                         gradient: Gradient(colors: [
-                            Color.blue.opacity(opacity),
-                            Color.purple.opacity(opacity),
-                            Color.pink.opacity(opacity),
-                            Color.orange.opacity(opacity)
+                            Color.blue.opacity(colorOpacity),
+                            Color.purple.opacity(colorOpacity),
+                            Color.pink.opacity(colorOpacity),
+                            Color.orange.opacity(colorOpacity)
                         ]),
                         startPoint: .leading,
                         endPoint: .trailing)
