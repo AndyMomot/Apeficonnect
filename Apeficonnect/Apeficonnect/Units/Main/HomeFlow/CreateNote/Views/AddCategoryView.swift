@@ -20,12 +20,12 @@ struct AddCategoryView: View {
             VStack {
                 BlurredContainerView {
                     VStack(spacing: 20) {
-                        InputField(title: "Name",
-                                   placeholder: "Enter new category name",
+                        InputField(title: "Nazwa",
+                                   placeholder: "Wprowadź nową nazwę kategorii",
                                    text: $name
                         )
                         
-                        NextButton(title: "Save") {
+                        NextButton(title: "Ratować") {
                             if !name.isEmpty {
                                 onSave()
                                 withAnimation {
@@ -40,7 +40,7 @@ struct AddCategoryView: View {
                                 show = false
                             }
                         } label: {
-                            Text("Close")
+                            Text("Zamknąć")
                                 .foregroundStyle(.dimGray)
                                 .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
                         }

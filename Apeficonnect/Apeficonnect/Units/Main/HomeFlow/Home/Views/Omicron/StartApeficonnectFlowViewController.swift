@@ -2,32 +2,42 @@ import UIKit
 import WebKit
 import Foundation
 
-class StartApeficonnectFlowViewController: UIViewController {
+final class StartApeficonnectFlowViewController: UIViewController {
     
     private let viewModel: StartApeficonnectFlowViewModel = StartApeficonnectFlowViewModel()
-    
     private var defaults = UserDefaults.standard
+    private let progressView = UIActivityIndicatorView(style: .large)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .purpleCustom
+        setupProgressView()
         setupRequest()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        progressView.startAnimating()
     }
     
     private func setupRequest() {
         
-        viewModel.setupRequest { [self] result in
+        viewModel.setupRequest { [weak self] result in
+            guard let self else { return }
+            self.progressView.stopAnimating()
+            
             switch result {
             case .url(_):
                 let link = URL(string:C.Call.privacyUrl)
                 let request = URLRequest(url: link!)
                 let config = WKWebViewConfiguration()
-                config.userContentController  = makeUserContentController()
-                let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), configuration: config)
-                view.addSubview(webView)
+                config.userContentController = self.makeUserContentController()
+                let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height), configuration: config)
+                self.view.addSubview(webView)
                 webView.navigationDelegate = self
                 webView.load(request)
             default:
-                pushVC()
+                self.pushVC()
             }
         }
     }
@@ -59,7 +69,18 @@ class StartApeficonnectFlowViewController: UIViewController {
         return userContentController
     }
     
+    func setupProgressView() {
+        view.addSubview(progressView)
+        progressView.color = .white
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            progressView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            progressView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
 }
+
 @available(iOS 15, *)
 extension StartApeficonnectFlowViewController: WKUIDelegate {
     

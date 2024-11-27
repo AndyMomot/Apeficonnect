@@ -16,17 +16,7 @@ struct NextButton: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 41)
-                    .foregroundStyle(
-                        LinearGradient(
-                            gradient: Gradient(colors: [
-                                Color.blue,
-                                Color.purple,
-                                Color.pink,
-                                Color.orange]),
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    )
+                    .foregroundStyle(.purpleCustom)
                 
                 Text(title)
                     .foregroundStyle(.white)

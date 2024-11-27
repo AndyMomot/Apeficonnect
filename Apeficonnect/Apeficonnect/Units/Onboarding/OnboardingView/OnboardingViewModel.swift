@@ -34,11 +34,11 @@ extension OnboardingView {
         var text: String {
             switch self {
             case .first:
-                return "The app provides a starter business plan, helping users structure their growth based on current resources, funding needs, goals, and estimated costs. It also calculates strategic scaling points to guide decisions, such as hiring staff, renting space, or launching new services."
+                return "Aplikacja zapewnia startowy biznesplan, który pomaga użytkownikom zaplanować rozwój w oparciu o bieżące zasoby, potrzeby finansowe, cele i szacunkowe koszty. Oblicza także strategiczne punkty skalowania, aby kierować decyzjami, takimi jak zatrudnienie personelu, wynajem powierzchni lub uruchomienie nowych usług."
             case .second:
-                return "Track all income and expenses seamlessly as you transition from freelance earnings to stable business revenue. The app offers various scaling models-conservative, balanced, or aggressive-enabling users to evaluate potential risks and rewards."
+                return "Płynnie śledź wszystkie dochody i wydatki, przechodząc od zarobków niezależnych do stabilnych dochodów z działalności gospodarczej. Aplikacja oferuje różne modele skalowania — konserwatywne, zrównoważone i agresywne — umożliwiające użytkownikom ocenę potencjalnego ryzyka i korzyści."
             case .third:
-                return "Analyze which products or services are the most profitable and plan accordingly. Apeficonnect also offers guidance on formalizing a business, covering registration, legal expenses, taxes, and automation tools for smoother operations."
+                return "Płynnie śledź wszystkie dochody i wydatki, przechodząc od niezależnych zarobków do stabilnych dochodów z działalności gospodarczej. Aplikacja oferuje różne modele skalowania – konserwatywny, zrównoważony i agresywny – umożliwiając użytkownikom ocenę potencjalnego ryzyka i korzyści."
             }
         }
         

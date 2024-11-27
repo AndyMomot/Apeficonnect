@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension TabBar {
     final class TabBarViewModel: ObservableObject {
@@ -31,5 +32,6 @@ extension TabBar {
     struct Item: Identifiable {
         private(set) var id = UUID()
         var imageName: String
+        var color: Color
     }
 }

@@ -45,7 +45,7 @@ struct IncomeCostChartView: View {
                         .fill(.green)
                         .frame(width: 12)
                     HStack(spacing: 5) {
-                        Text("Income:")
+                        Text("Dochód:")
                             .foregroundStyle(Color.dimGray)
                             .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                         Text("\(income)".toNumberFormat())
@@ -60,7 +60,7 @@ struct IncomeCostChartView: View {
                         .fill(.red)
                         .frame(width: 12)
                     HStack(spacing: 4) {
-                        Text("Cost:")
+                        Text("Koszt:")
                             .foregroundStyle(Color.dimGray)
                             .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                         Text("\(cost)".toNumberFormat())

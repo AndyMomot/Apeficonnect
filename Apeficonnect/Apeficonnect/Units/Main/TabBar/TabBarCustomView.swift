@@ -11,10 +11,10 @@ struct TabBarCustomView: View {
     @Binding var selectedItem: Int
     
     @State private var items: [TabBar.Item] = [
-        .init(imageName: Asset.startTab.name),
-        .init(imageName: Asset.trackerTab.name),
-        .init(imageName: Asset.advicesTab.name),
-        .init(imageName: Asset.goalsTab.name)
+        .init(imageName: Asset.startTab.name, color: .purple),
+        .init(imageName: Asset.trackerTab.name, color: .blue),
+        .init(imageName: Asset.advicesTab.name, color: .teal),
+        .init(imageName: Asset.goalsTab.name, color: .green)
     ]
     
     private var arrange: [Int] {
@@ -32,37 +32,51 @@ struct TabBarCustomView: View {
             Color.white
                 .cornerRadius(24, corners: [.topLeft, .topRight])
             
-            HStack {
-                Spacer()
+            HStack(spacing: 0) {
                 ForEach(arrange, id: \.self) { index in
                     let item = items[index]
                     let isSelected = index == selectedItem
-                    
-                    Image(item.imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 30)
-                        .opacity(isSelected ? 1 : 0.5)
-                        .onTapGesture {
-                            withAnimation {
-                                selectedItem = index
-                            }
+                    var cornerRadius: CGFloat {
+                        if index == 0 || index == arrange.count - 1 {
+                            return 24
+                        } else {
+                            return 0
                         }
-                    Spacer()
+                    }
+                    var corners: UIRectCorner {
+                        if index == 0 {
+                            return .topLeft
+                        } else if index == arrange.count - 1 {
+                            return .topRight
+                        } else {
+                            return []
+                        }
+                    }
+                    
+                    ZStack {
+                        item.color
+                            .cornerRadius(cornerRadius,
+                                          corners: corners)
+                        
+                        Image(item.imageName)
+                            .renderingMode(.template)
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: 30)
+                    }
+                    .opacity(isSelected ? 1 : 0.7)
+                    .onTapGesture {
+                        withAnimation {
+                            selectedItem = index
+                        }
+                    }
                 }
             }
         }
         .overlay {
             RoundedRectangle(cornerRadius: 24)
-                .stroke(LinearGradient(
-                    gradient: Gradient(colors: [
-                        Color.blue,
-                        Color.purple,
-                        Color.pink,
-                        Color.orange]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                ), lineWidth: 1)
+                .stroke(Color.purpleCustom, lineWidth: 1)
                
         }
     }

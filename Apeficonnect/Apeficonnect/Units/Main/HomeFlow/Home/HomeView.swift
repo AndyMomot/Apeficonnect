@@ -58,7 +58,7 @@ struct HomeView: View {
                     ScrollView {
                         VStack(spacing: 20) {
                             HStack {
-                                Text("Notes")
+                                Text("Notatki")
                                     .foregroundStyle(.white)
                                     .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
                                 Spacer()

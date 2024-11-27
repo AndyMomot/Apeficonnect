@@ -16,7 +16,7 @@ struct AuthView: View {
             Color.paleAsh
                 .ignoresSafeArea()
             
-            Asset.logo.swiftUIImage
+            Asset.authLogo.swiftUIImage
                 .resizable()
                 .scaledToFit()
                 .padding(.horizontal, 60)
@@ -24,19 +24,19 @@ struct AuthView: View {
             
             VStack(spacing: 57) {
                 HStack {
-                    Text("Hello, Welcome!")
+                    Text("Cześć, Witamy!")
                         .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 20))
                         .foregroundStyle(Color.dimGray)
                     Spacer()
                 }
                 
-                InputField(title: "Nickname",
-                           placeholder: "Your Nickname",
+                InputField(title: "Przydomek",
+                           placeholder: "Twój pseudonim",
                            text: $viewModel.nickName)
                 
                 Spacer()
                 
-                NextButton(title: "Next") {
+                NextButton(title: "Następny") {
                     viewModel.saveUser {
                         DispatchQueue.main.async {
                             rootViewModel.setFlow(.main)
@@ -50,6 +50,7 @@ struct AuthView: View {
             }
             .padding(.horizontal, 20)
         }
+        .hideKeyboardWhenTappedAround()
     }
 }
 

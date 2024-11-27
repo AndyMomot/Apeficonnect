@@ -19,16 +19,12 @@ struct ProfileView: View {
     
     var body: some View {
         ZStack {
-            Color.paleAsh
+            Asset.homeBg.swiftUIImage
+                .resizable()
                 .ignoresSafeArea()
             
-            VStack {
-                Asset.homeBg.swiftUIImage
-                    .resizable()
-                    .scaledToFit()
-                Spacer()
-            }
-            .ignoresSafeArea()
+            Color.purpleCustom.opacity(0.2)
+                .ignoresSafeArea()
             
             VStack(spacing: 60) {
                 VStack(spacing: 0) {
@@ -48,9 +44,7 @@ struct ProfileView: View {
                     }
                     
                     HStack(alignment: .bottom) {
-                        Image(systemName: viewModel.canEdit ? "pencil.circle.fill" : "pencil.circle")
-                            .resizable()
-                            .scaledToFit()
+                        Rectangle()
                             .frame(width: 24, height: 24)
                             .hidden()
                         
@@ -77,8 +71,10 @@ struct ProfileView: View {
                             Image(systemName: viewModel.canEdit ? "pencil.circle.fill" : "pencil.circle")
                                 .resizable()
                                 .scaledToFit()
-                                .foregroundStyle(Color.dimGray)
-                                .frame(width: 24, height: 24)
+                                .foregroundStyle(Color.purpleCustom, .white)
+                                .frame(width: 28, height: 28)
+                                .shadow(color: .black,
+                                        radius: 10)
                         }
                     }
                 }
@@ -88,16 +84,18 @@ struct ProfileView: View {
                         VStack(spacing: 24) {
                             HStack(spacing: 30) {
                                 Asset.person.swiftUIImage
+                                    .renderingMode(.template)
                                     .resizable()
+                                    .foregroundStyle(.white)
                                     .scaledToFit()
                                     .frame(width: 30, height: 30)
                                 
                                 TextField(text: $viewModel.nickName) {
-                                    Text("Enter your nickname")
-                                        .foregroundStyle(.charcoalBlack.opacity(0.5))
+                                    Text("Wprowadź swój pseudonim")
+                                        .foregroundStyle(.white.opacity(0.5))
                                         .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
                                 }
-                                .foregroundStyle(.charcoalBlack)
+                                .foregroundStyle(.white)
                                 .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
                                 .disabled(!viewModel.canEdit)
                                 
@@ -107,7 +105,7 @@ struct ProfileView: View {
                             if let url = URL(string: viewModel.appUrl) {
                                 UserButton(
                                     image: Asset.share.swiftUIImage,
-                                    title: "Share") {
+                                    title: "Udział") {
                                         DispatchQueue.main.async {
                                             share(url: url.absoluteString)
                                         }
@@ -115,7 +113,7 @@ struct ProfileView: View {
                                 
                                 UserButton(
                                     image: Asset.rate.swiftUIImage,
-                                    title: "Rate the App") {
+                                    title: "Oceń aplikację") {
                                         DispatchQueue.main.async {
                                             UIApplication.shared.open(url)
                                         }
@@ -124,7 +122,7 @@ struct ProfileView: View {
                             
                             UserButton(
                                 image: Image(systemName: "arrow.up.trash.fill"),
-                                title: "Clear cache") {
+                                title: "Wyczyść pamięć podręczną") {
                                     withAnimation {
                                         viewModel.showClearCacheAlert = true
                                     }
@@ -140,10 +138,10 @@ struct ProfileView: View {
                 ProgressView()
             }
         }
-        .alert("Deleting data", isPresented: $viewModel.showClearCacheAlert) {
-            Button("Cancel", role: .cancel) {}
+        .alert("Usuwanie danych", isPresented: $viewModel.showClearCacheAlert) {
+            Button("Anulować", role: .cancel) {}
             
-            Button("Delete", role: .destructive) {
+            Button("Usuwać", role: .destructive) {
                 withAnimation { viewModel.showLoader = true }
                 viewModel.clearCache {
                     withAnimation {
@@ -153,7 +151,7 @@ struct ProfileView: View {
                 }
             }
         } message: {
-            Text("Are you sure you want to erase the data?")
+            Text("Czy na pewno chcesz usunąć dane?")
         }
         .navigationBarBackButtonHidden()
         .onAppear {

@@ -23,6 +23,7 @@ struct NoteView: View {
                     HStack(alignment: .top) {
                         Text(item.title)
                             .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 20))
+                            .lineLimit(showText ? nil : 1)
                         Spacer()
                         
                         Button {
@@ -43,6 +44,7 @@ struct NoteView: View {
                     Text(item.category)
                         .foregroundStyle(.dimGray.opacity(0.6))
                         .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
+                        .lineLimit(showText ? nil : 1)
                 }
                 
                 if showText {

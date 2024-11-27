@@ -11,24 +11,24 @@ struct StrategyPreview: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 40) {
             VStack(alignment: .leading, spacing: 15) {
-                Text("Results and Risks of the Selected Model")
+                Text("Wyniki i ryzyka wybranego modelu")
                     .foregroundStyle(Colors.charcoalBlack.swiftUIColor)
                     .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
                     .baselineOffset(5)
                 
-                Text("The results and risks of each model will be displayed here.")
+                Text("Tutaj zostaną wyświetlone wyniki i ryzyka każdego modelu.")
                     .foregroundStyle(Colors.dimGray.swiftUIColor)
                     .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                     .baselineOffset(10)
             }
             
             VStack(alignment: .leading, spacing: 15) {
-                Text("Recommendations for the Next Steps for the Selected Model")
+                Text("Zalecenia dotyczące kolejnych kroków dla wybranego modelu")
                     .foregroundStyle(Colors.charcoalBlack.swiftUIColor)
                     .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
                     .baselineOffset(5)
                 
-                Text("Here you will see recommendations for next steps for the selected model.")
+                Text("Tutaj zobaczysz zalecenia dotyczące następnych kroków dla wybranego modelu.")
                     .foregroundStyle(Colors.dimGray.swiftUIColor)
                     .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                     .baselineOffset(10)

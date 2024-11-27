@@ -22,6 +22,6 @@ struct IncomeCostCategoryModel: Codable, Identifiable {
 }
 
 enum IncomeCostType: String, Codable, CaseIterable {
-    case income = "Income"
-    case cost = "Cost"
+    case income = "Dochód"
+    case cost = "Koszt"
 }

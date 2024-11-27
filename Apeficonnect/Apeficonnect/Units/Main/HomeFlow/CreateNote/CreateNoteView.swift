@@ -41,7 +41,7 @@ struct CreateNoteView: View {
                     
                     Spacer()
                     
-                    Text("New Note")
+                    Text("Nowa notatka")
                         .foregroundStyle(.white)
                         .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 20))
                 }
@@ -52,21 +52,21 @@ struct CreateNoteView: View {
                         BlurredContainerView {
                             VStack(spacing: 20) {
                                 InputField(
-                                    title: "Title",
-                                    placeholder: "Enter a title...",
+                                    title: "Tytuł",
+                                    placeholder: "Wprowadź tytuł...",
                                     text: $viewModel.title
                                 )
                                 
                                 DynamicHeightTextField(
-                                    title: "Description",
-                                    placeholder: "Enter a description...",
+                                    title: "Opis",
+                                    placeholder: "Wprowadź opis...",
                                     text: $viewModel.description
                                 )
                                 .frame(minHeight: 120)
                                 
                                 VStack(alignment: .leading) {
                                     HStack() {
-                                        Text("Category")
+                                        Text("Kategoria")
                                         
                                         Spacer()
                                         
@@ -94,7 +94,7 @@ struct CreateNoteView: View {
                                 
                                 Spacer()
                                 
-                                NextButton(title: "Add a New Goal") {
+                                NextButton(title: "Dodaj nową notatkę") {
                                     viewModel.saveNote {
                                         dismiss.callAsFunction()
                                     }

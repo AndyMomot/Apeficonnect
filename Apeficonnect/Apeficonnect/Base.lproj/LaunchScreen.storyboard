@@ -17,33 +17,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="yqS-pg-sTJ">
-                                <rect key="frame" x="136" y="255.66666666666663" width="121" height="190"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preloaderBg" translatesAutoresizingMaskIntoConstraints="NO" id="th5-qv-1qw">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preloaderTitle" translatesAutoresizingMaskIntoConstraints="NO" id="d3c-vE-dgM">
-                                <rect key="frame" x="100" y="465.66666666666669" width="193" height="38"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preloaderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ivF-Hr-ij3">
+                                <rect key="frame" x="68" y="340.66666666666669" width="257" height="171"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="paleAsh"/>
                         <constraints>
-                            <constraint firstItem="d3c-vE-dgM" firstAttribute="top" secondItem="yqS-pg-sTJ" secondAttribute="bottom" constant="20" id="4KU-Yy-FU7"/>
-                            <constraint firstItem="yqS-pg-sTJ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.8" id="QJ4-yc-C4T"/>
-                            <constraint firstItem="d3c-vE-dgM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="ZHm-GV-081"/>
-                            <constraint firstItem="yqS-pg-sTJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="136" id="beu-bn-eju"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d3c-vE-dgM" secondAttribute="trailing" constant="100" id="osP-UL-sHq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yqS-pg-sTJ" secondAttribute="trailing" constant="136" id="x3A-6O-WDL"/>
+                            <constraint firstItem="th5-qv-1qw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7He-qw-3hJ"/>
+                            <constraint firstItem="ivF-Hr-ij3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="A3z-kP-tqC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ivF-Hr-ij3" secondAttribute="trailing" constant="68" id="GLc-aL-N6B"/>
+                            <constraint firstItem="ivF-Hr-ij3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Rt1-W8-feV"/>
+                            <constraint firstAttribute="bottom" secondItem="th5-qv-1qw" secondAttribute="bottom" id="SWs-Sq-pbp"/>
+                            <constraint firstItem="th5-qv-1qw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bCu-ge-TMN"/>
+                            <constraint firstItem="th5-qv-1qw" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="tKI-F7-eQN"/>
+                            <constraint firstItem="ivF-Hr-ij3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="z2m-4j-OPy"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="122" height="190"/>
-        <image name="preloaderTitle" width="196" height="38"/>
+        <image name="preloaderBg" width="393" height="852"/>
+        <image name="preloaderLogo" width="256" height="171"/>
         <namedColor name="paleAsh">
             <color red="0.96078431372549022" green="0.95686274509803926" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

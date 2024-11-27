@@ -15,12 +15,14 @@ struct UserButton: View {
     var body: some View {
         HStack(spacing: 30) {
             image
+                .renderingMode(.template)
                 .resizable()
                 .scaledToFit()
+                .foregroundStyle(.white)
                 .frame(width: 30, height: 30)
             
             Text(title)
-                .foregroundStyle(.charcoalBlack)
+                .foregroundStyle(.white)
                 .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
             
             Spacer()
@@ -31,7 +33,7 @@ struct UserButton: View {
                 Image(systemName: "chevron.right")
                     .resizable()
                     .scaledToFit()
-                    .foregroundStyle(.charcoalBlack)
+                    .foregroundStyle(.white)
                     .frame(width: 8, height: 14)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 5)
@@ -41,5 +43,9 @@ struct UserButton: View {
 }
 
 #Preview {
-    UserButton(image: Asset.share.swiftUIImage, title: "Share") {}
+    ZStack {
+        Color.purple
+        
+        UserButton(image: Asset.share.swiftUIImage, title: "Share") {}
+    }
 }

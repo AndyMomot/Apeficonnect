@@ -13,28 +13,20 @@ struct FinanceTrackerView: View {
     
     var body: some View {
         ZStack {
-            VStack {
-                Asset.financeTrackerBg.swiftUIImage
-                    .resizable()
-                    .scaledToFit()
-                
-                Spacer()
-                
-                Asset.financeTrackerBottomBg.swiftUIImage
-                    .resizable()
-                    .scaledToFit()
-                
-                Spacer()
-            }
-            .ignoresSafeArea()
+            Asset.homeBg.swiftUIImage
+                .resizable()
+                .ignoresSafeArea()
+            
+            Color.purpleCustom.opacity(0.2)
+                .ignoresSafeArea()
             
             VStack(spacing: 20) {
                 NavigationTitleView()
                 
                 HStack {
-                    Text("Financial tracker")
+                    Text("Śledzenie finansów")
                         .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
-                        .foregroundStyle(Color.dimGray)
+                        .foregroundStyle(Color.white)
                     Spacer()
                 }
                 
@@ -89,11 +81,11 @@ struct FinanceTrackerView: View {
                                         .fill(.green)
                                         .frame(width: 12)
                                     HStack(spacing: 5) {
-                                        Text("Income:")
-                                            .foregroundStyle(Color.dimGray)
+                                        Text("Dochód:")
+                                            .foregroundStyle(Color.white)
                                             .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                                         Text("\(viewModel.income)".toNumberFormat())
-                                            .foregroundStyle(Color.dimGray)
+                                            .foregroundStyle(Color.white)
                                             .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 14))
                                     }
                                 }
@@ -104,11 +96,11 @@ struct FinanceTrackerView: View {
                                         .fill(.red)
                                         .frame(width: 12)
                                     HStack(spacing: 4) {
-                                        Text("Cost:")
-                                            .foregroundStyle(Color.dimGray)
+                                        Text("Koszt:")
+                                            .foregroundStyle(Color.white)
                                             .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                                         Text("\(viewModel.cost)".toNumberFormat())
-                                            .foregroundStyle(Color.dimGray)
+                                            .foregroundStyle(Color.white)
                                             .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 14))
                                     }
                                 }
@@ -120,12 +112,12 @@ struct FinanceTrackerView: View {
                                 }
                             } label: {
                                 HStack {
-                                    Text("Adding New Item")
+                                    Text("Dodawanie nowego elementu")
                                     Spacer()
                                     Image(systemName: viewModel.showAddItem ? "chevron.up" : "chevron.down")
                                         .padding(.vertical, 6)
                                 }
-                                .foregroundStyle(Color.dimGray)
+                                .foregroundStyle(Color.white)
                                 .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 12))
                             }
                             
@@ -139,32 +131,16 @@ struct FinanceTrackerView: View {
                                     viewModel.selectedType = type
                                 }
                                 
-                                InputField(title: "Amount",
+                                InputField(title: "Kwota",
                                            placeholder: "00",
                                            text: $viewModel.amount)
                                 .keyboardType(.numberPad)
                                 
                                 // Save button
-                                HStack(spacing: 0) {
-                                    Button {
-                                        viewModel.saveItem()
-                                    } label: {
-                                        HStack {
-                                            Spacer()
-                                            Text("Add New Item")
-                                                .lineLimit(1)
-                                                .foregroundStyle(.white)
-                                                .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 12))
-                                                .padding(.vertical, 16)
-                                            Spacer()
-                                        }
-                                        .padding(.horizontal, 26)
-                                        .background(
-                                            LiniarGradientView()
-                                        )
-                                        .cornerRadius(30, corners: .allCorners)
-                                    }
+                                NextButton(title: "Dodaj nowy element") {
+                                    viewModel.saveItem()
                                 }
+                                .frame(height: 55)
                             }
                         }
                         .padding(.bottom, 60)

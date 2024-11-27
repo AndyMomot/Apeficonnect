@@ -16,7 +16,7 @@ struct IncomeCategoryTypeList: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Type")
+            Text("Typ")
                 .multilineTextAlignment(.leading)
                 .foregroundStyle(Colors.charcoalBlack.swiftUIColor)
             

@@ -15,38 +15,38 @@ extension AdvicesView {
         let strategyItems: [Strategy] = [
             .init(
                 image: Asset.conservative.name,
-                title: "Conservative Strategy",
-                header: "Recommendations for the Next Steps for the Conservative Model",
+                title: "Strategia konserwatywna",
+                header: "Zalecenia dotyczące kolejnych kroków dla modelu konserwatywnego",
                 text: """
-                A conservative business development model prioritizes stability, risk mitigation, and sustainable growth. Here are some key recommendations to implement such a strategy:
-                1. Thorough Market Research and Risk Assessment:
-                In-depth Market Analysis: Conduct a comprehensive analysis of your target market, including customer needs, preferences, and potential competitors.
-                Risk Identification and Mitigation: Identify potential risks, such as economic downturns, regulatory changes, or technological disruptions, and develop strategies to mitigate them.
-                Financial Forecasting: Create detailed financial projections, including revenue, expenses, and cash flow forecasts, to assess the financial viability of your business.
+                Konserwatywny model rozwoju biznesu stawia na pierwszym miejscu stabilność, ograniczanie ryzyka i zrównoważony wzrost. Oto kilka kluczowych rekomendacji dotyczących wdrożenia takiej strategii:
+                1. Dokładne badanie rynku i ocena ryzyka:
+                Głęboka analiza rynku: Przeprowadź kompleksową analizę swojego rynku docelowego, w tym potrzeb klientów, preferencji i potencjalnych konkurentów.
+                Identyfikacja i ograniczanie ryzyka: Zidentyfikuj potencjalne ryzyka, takie jak spowolnienia gospodarcze, zmiany regulacyjne lub zakłócenia technologiczne, i opracuj strategie ich ograniczania.
+                Prognozowanie finansowe: Twórz szczegółowe prognozy finansowe, w tym prognozy przychodów, wydatków i przepływów pieniężnych, aby ocenić rentowność finansową swojej firmy.
                 """
             ),
             .init(
                 image: Asset.balanced.name,
-                title: "Balanced Strategy",
-                header: "Recommendations for the Next Steps for the Balanced Model",
+                title: "Zrównoważona strategia",
+                header: "Zalecenia dotyczące kolejnych kroków dla zrównoważonego modelu",
                 text: """
-                    A balanced business development model aims to achieve a harmonious blend of growth, stability, and risk management. Here are key recommendations to implement this strategy:
-                    1. Strategic Planning and Vision:
-                    Clear Vision and Mission: Define a clear vision and mission statement that outlines the long-term goals and values of your business.
-                    Strategic Planning: Develop a comprehensive strategic plan that outlines your business objectives, target markets, and competitive advantages.
-                    Risk Assessment: Identify potential risks and develop contingency plans to mitigate them.
+                    Zrównoważony model rozwoju biznesu ma na celu osiągnięcie harmonijnego połączenia wzrostu, stabilności i zarządzania ryzykiem. Oto kluczowe zalecenia dotyczące wdrożenia tej strategii:
+                    1. Planowanie strategiczne i wizja:
+                    Jasna wizja i misja: Zdefiniuj jasną wizję i oświadczenie misji, które określają długoterminowe cele i wartości Twojej firmy.
+                    Planowanie strategiczne: Opracuj kompleksowy plan strategiczny, który określa cele Twojej firmy, rynki docelowe i przewagi konkurencyjne.
+                    Ocena ryzyka: Zidentyfikuj potencjalne ryzyka i opracuj plany awaryjne w celu ich złagodzenia.
                     """
             ),
             .init(
                 image: Asset.aggressive.name,
-                title: "Aggressive Strategy",
-                header: "Recommendations for the Next Steps for the Aggressive Model",
+                title: "Agresywna strategia",
+                header: "Zalecenia dotyczące kolejnych kroków dla modelu agresywnego",
                 text: """
-                An aggressive business development model prioritizes rapid growth and market dominance. Here are key recommendations to implement this strategy:
-                1. Bold Vision and Ambitious Goals
-                Clear Vision: Develop a clear and inspiring vision for the future of your business.
-                Aggressive Goals: Set ambitious, yet achievable, growth targets.
-                Risk Tolerance: Be willing to take calculated risks to accelerate growth.
+                Agresywny model rozwoju biznesu stawia na szybki wzrost i dominację na rynku. Oto kluczowe zalecenia dotyczące wdrożenia tej strategii:
+                1. Odważna wizja i ambitne cele
+                Jasna wizja: Opracuj jasną i inspirującą wizję przyszłości swojego biznesu.
+                Agresywne cele: Ustal ambitne, ale osiągalne cele wzrostu.
+                Tolerancja ryzyka: Bądź gotowy na podejmowanie skalkulowanego ryzyka w celu przyspieszenia wzrostu.
                 """
             )
         ]

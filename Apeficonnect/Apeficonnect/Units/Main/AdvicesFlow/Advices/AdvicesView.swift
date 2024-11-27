@@ -16,16 +16,12 @@ struct AdvicesView: View {
     
     var body: some View {
         ZStack {
-            Colors.paleAsh.swiftUIColor
+            Asset.homeBg.swiftUIImage
+                .resizable()
                 .ignoresSafeArea()
             
-            VStack {
-                Asset.advicesBg.swiftUIImage
-                    .resizable()
-                    .scaledToFit()
-                Spacer()
-            }
-            .ignoresSafeArea()
+            Color.purpleCustom.opacity(0.2)
+                .ignoresSafeArea()
             
             VStack(spacing: 20) {
                 NavigationTitleView()
@@ -33,7 +29,7 @@ struct AdvicesView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         HStack {
-                            Text("Scaling models")
+                            Text("Modele skalowania")
                                 .foregroundStyle(.white)
                                 .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
                             Spacer()
@@ -41,8 +37,8 @@ struct AdvicesView: View {
                         
                         if viewModel.selectedStrategy == nil {
                             HStack {
-                                Text("Choose one of the strategies to predict the results and risks for it.")
-                                    .foregroundStyle(Colors.charcoalBlack.swiftUIColor)
+                                Text("Wybierz jedną ze strategii, aby przewidzieć jej wyniki i ryzyko.")
+                                    .foregroundStyle(.white)
                                     .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                                 Spacer()
                             }

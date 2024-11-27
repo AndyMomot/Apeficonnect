@@ -16,16 +16,12 @@ struct AddGoalView: View {
     
     var body: some View {
         ZStack {
-            Colors.paleAsh.swiftUIColor
+            Asset.homeBg.swiftUIImage
+                .resizable()
                 .ignoresSafeArea()
             
-            VStack {
-                Asset.addGoalBg.swiftUIImage
-                    .resizable()
-                    .scaledToFit()
-                Spacer()
-            }
-            .ignoresSafeArea()
+            Color.purpleCustom.opacity(0.2)
+                .ignoresSafeArea()
             
             VStack(spacing: 20) {
                 HStack {
@@ -47,7 +43,7 @@ struct AddGoalView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         HStack {
-                            Text("New Goal")
+                            Text("Nowy cel")
                                 .foregroundStyle(.white)
                                 .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 20))
                             Spacer()
@@ -56,14 +52,14 @@ struct AddGoalView: View {
                         BlurredContainerView {
                             VStack(spacing: 20) {
                                 InputField(
-                                    title: "Description of the Goal",
-                                    placeholder: "Enter a description...",
+                                    title: "Opis celu",
+                                    placeholder: "Wprowadź opis...",
                                     text: $viewModel.goalName
                                 )
                                 
                                 VStack(spacing: 6) {
                                     HStack {
-                                        Text("Tasks:")
+                                        Text("Zadania:")
                                             .foregroundStyle(Colors.dimGray.swiftUIColor)
                                             .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
                                         Spacer()
@@ -77,19 +73,19 @@ struct AddGoalView: View {
                                 }
                                 
                                 InputField(
-                                    title: "Description of the Task",
-                                    placeholder: "Enter a task...",
+                                    title: "Opis zadania",
+                                    placeholder: "Wprowadź zadanie...",
                                     text: $viewModel.taskName
                                 )
                                 
-                                NextButton(title: "Add a New task") {
+                                NextButton(title: "Dodaj nowe zadanie") {
                                     viewModel.addTask()
                                 }
                                 .frame(height: 40)
                                 
                                 Spacer()
                                 
-                                NextButton(title: "Add a New Goal") {
+                                NextButton(title: "Dodaj nowy cel") {
                                     viewModel.addGoal {
                                         onDismiss()
                                         dismiss.callAsFunction()

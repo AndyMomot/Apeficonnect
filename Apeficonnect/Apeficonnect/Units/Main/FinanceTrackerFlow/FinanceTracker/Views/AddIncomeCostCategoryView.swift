@@ -23,11 +23,11 @@ struct AddIncomeCostCategoryView: View {
             ScrollView {
                 BlurredContainerView {
                     VStack(spacing: 40) {
-                        InputField(title: "Category name",
-                                   placeholder: "Enter the name...",
+                        InputField(title: "Nazwa kategorii",
+                                   placeholder: "Wprowadź nazwę...",
                                    text: $text)
                         
-                        NextButton(title: "Save") {
+                        NextButton(title: "Ratować") {
                             saveCategory()
                         }
                         .frame(height: 58)

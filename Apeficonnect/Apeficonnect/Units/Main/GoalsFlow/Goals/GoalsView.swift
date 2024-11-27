@@ -13,19 +13,12 @@ struct GoalsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Colors.paleAsh.swiftUIColor
+                Asset.homeBg.swiftUIImage
+                    .resizable()
                     .ignoresSafeArea()
                 
-                VStack {
-                    Asset.goalsTopBg.swiftUIImage
-                        .resizable()
-                        .scaledToFit()
-                    Spacer()
-                    Asset.goalsBottomBg.swiftUIImage
-                        .resizable()
-                        .scaledToFit()
-                }
-                .ignoresSafeArea()
+                Color.purpleCustom.opacity(0.2)
+                    .ignoresSafeArea()
                 
                 VStack(spacing: 20) {
                     NavigationTitleView()
@@ -33,7 +26,7 @@ struct GoalsView: View {
                     ScrollView {
                         VStack(spacing: 20) {
                             HStack {
-                                Text("Goals and Tasks")
+                                Text("Cele i zadania")
                                     .foregroundStyle(.white)
                                     .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
                                 
@@ -59,7 +52,7 @@ struct GoalsView: View {
                             } else {
                                 if viewModel.goals.isEmpty {
                                     Spacer()
-                                    NextButton(title: "Add a New Goal") {
+                                    NextButton(title: "Dodaj nowy cel") {
                                         viewModel.showAddGoal.toggle()
                                     }
                                     .frame(height: 59)

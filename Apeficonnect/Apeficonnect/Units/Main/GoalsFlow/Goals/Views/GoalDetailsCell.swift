@@ -25,7 +25,7 @@ struct GoalDetailsCell: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 20)
-                            Text("Back")
+                            Text("Z powrotem")
                         }
                         .foregroundStyle(.dimGray)
                         .font(Fonts.SFProDisplay.lightItalic.swiftUIFont(size: 12))
@@ -46,14 +46,14 @@ struct GoalDetailsCell: View {
                 .background(.white)
                 .cornerRadius(30, corners: .allCorners)
                 
-                Text("The goal was achieved by \(Int(progress * 100))%")
+                Text("Cel został osiągnięty poprzez \(Int(progress * 100))%")
                     .foregroundStyle(.dimGray)
                     .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 12))
                     .multilineTextAlignment(.center)
                 
                 ZStack {
                     ProgressView(value: progress)
-                        .tint(.red)
+                        .tint(.purpleCustom)
                     
                     HStack {
                         Spacer()
@@ -78,7 +78,7 @@ struct GoalDetailsCell: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("Tasks:")
+                    Text("Zadania:")
                     ForEach(goal.tasks) { task in
                         TaskCheckBoxCell(task: task) { id in
                             toggleTask(id: id)
@@ -89,7 +89,7 @@ struct GoalDetailsCell: View {
                     }
                 }
                 
-                NextButton(title: "Goal achieved") {
+                NextButton(title: "Cel osiągnięty") {
                     action(.finishGoal(goalId: goal.id))
                 }
                 .frame(height: 59)

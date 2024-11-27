@@ -19,13 +19,14 @@ struct StrategyCell: View {
                     Spacer()
                     VStack(spacing: 14) {
                         Image(image)
+                            .renderingMode(.template)
                             .resizable()
                             .scaledToFit()
+                            .foregroundStyle(.purpleCustom)
                         
                         Text(title)
                             .foregroundStyle(Colors.charcoalBlack.swiftUIColor)
                             .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 12))
-                            .lineLimit(2)
                             .minimumScaleFactor(0.8)
                             .multilineTextAlignment(.center)
                     }
@@ -42,7 +43,7 @@ struct StrategyCell: View {
                                 Image(systemName: "checkmark")
                                     .resizable()
                                     .scaledToFit()
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.purpleCustom)
                                 Spacer()
                             }
                             Spacer()

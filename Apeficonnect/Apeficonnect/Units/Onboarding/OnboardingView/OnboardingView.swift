@@ -26,7 +26,7 @@ struct OnboardingView: View {
                         Button {
                             currentPageIndex = OnboardingView.OnboardingItem.third.rawValue
                         } label: {
-                            Text("Skip")
+                            Text("Pominąć")
                                 .foregroundStyle(.dimGray)
                                 .padding(.vertical, 12)
                                 .padding(.horizontal, 6)
@@ -40,6 +40,7 @@ struct OnboardingView: View {
                         .scaledToFit()
                     
                     Text(item.text)
+                        .lineSpacing(5)
                         .foregroundStyle(Color.dimGray)
                         .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 14))
                         .multilineTextAlignment(.center)
@@ -51,11 +52,11 @@ struct OnboardingView: View {
                     ForEach(0..<3, id: \.self) { index in
                         if index <= item.rawValue  {
                             Circle()
-                                .fill(Color.dimGray)
+                                .fill(Color.purpleCustom)
                                 .frame(width: 17)
                         } else {
                             Circle()
-                                .stroke(Color.dimGray, lineWidth: 1)
+                                .stroke(Color.purpleCustom, lineWidth: 1)
                                 .frame(width: 17)
                         }
                     }
@@ -80,21 +81,12 @@ struct OnboardingView: View {
                             viewModel.showPrivacyPolicy.toggle()
                         } label: {
                             HStack(spacing: 3) {
-                                Text("I chose 'Start' I agree with")
+                                Text("Wybrałem „Start” Zgadzam się z")
                                     .foregroundStyle(.dimGray)
                                     .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                                 
-                                Text("Privacy Policy")
-                                    .foregroundStyle(
-                                        LinearGradient(
-                                            gradient: Gradient(colors: [
-                                                Color.pink,
-                                                Color.orange
-                                            ]),
-                                            startPoint: .leading,
-                                            endPoint: .trailing
-                                        )
-                                    )
+                                Text("Polityką Prywatności")
+                                    .foregroundStyle(Color.purpleCustom)
                                     .underline().font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 14))
                             }
                         }
@@ -103,7 +95,7 @@ struct OnboardingView: View {
                 
                 Spacer()
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 26)
         }
         .sheet(isPresented: $viewModel.showPrivacyPolicy) {
             SwiftUIViewWebView(url: viewModel.privacyPolicyURL)

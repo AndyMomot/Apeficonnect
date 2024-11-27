@@ -15,7 +15,7 @@ struct IncomeCategoryList: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Сategory")
+            Text("Kategoria")
                 .multilineTextAlignment(.leading)
                 .foregroundStyle(Colors.charcoalBlack.swiftUIColor)
             
@@ -61,7 +61,7 @@ struct IncomeCategoryList: View {
                     action(.onAddNew)
                 } label: {
                     HStack(spacing: 8) {
-                        Text("+ New category")
+                        Text("+ Nowa kategoria")
                             .multilineTextAlignment(.leading)
                             .foregroundStyle(Colors.charcoalBlack.swiftUIColor)
                             .font(Fonts.SFProDisplay.semiboldItalic.swiftUIFont(size: 12))

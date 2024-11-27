@@ -14,7 +14,7 @@ struct GoalCell: View {
     var body: some View {
         BlurredContainerView {
             VStack(spacing: 10) {
-                Text("Goal \(position)")
+                Text("Bramka \(position)")
                     .foregroundStyle(.white)
                     .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
                     .multilineTextAlignment(.center)
@@ -34,7 +34,7 @@ struct GoalCell: View {
                 HStack {
                     Spacer()
                     HStack {
-                        Text("To tasks")
+                        Text("Do zadań")
                         Image(systemName: "arrow.right")
                             .resizable()
                             .scaledToFit()

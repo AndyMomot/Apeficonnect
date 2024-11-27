@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct NavigationTitleView: View {
-    @State private var nickName = "User"
+    @State private var nickName = "Użytkownik"
     
     var body: some View {
         HStack {
             Spacer()
             VStack(spacing: 1) {
-                Text("Hello, \(nickName)")
+                Text("Cześć, \(nickName)")
                     .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 12))
                     .foregroundStyle(.white)
                 

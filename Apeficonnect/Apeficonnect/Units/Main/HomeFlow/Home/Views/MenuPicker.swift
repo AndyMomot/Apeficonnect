@@ -25,7 +25,7 @@ struct MenuPicker: View {
                         }
                         
                         Text("\(String(describing: item))")
-                            .foregroundStyle(Colors.charcoalBlack.swiftUIColor)
+                            .foregroundStyle(Colors.purpleCustom.swiftUIColor)
                             .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 14))
                     }
                 }
@@ -51,7 +51,7 @@ struct MenuPicker: View {
             .padding(.horizontal, 8)
             .overlay {
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Colors.charcoalBlack.swiftUIColor,
+                    .stroke(Colors.purpleCustom.swiftUIColor,
                             lineWidth: 1)
             }
         }
