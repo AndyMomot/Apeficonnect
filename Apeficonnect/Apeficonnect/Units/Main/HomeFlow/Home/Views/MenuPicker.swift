@@ -50,7 +50,7 @@ struct MenuPicker: View {
             .padding(.vertical, 10)
             .padding(.horizontal, 8)
             .overlay {
-                RoundedRectangle(cornerRadius: 2)
+                RoundedRectangle(cornerRadius: 10)
                     .stroke(Colors.charcoalBlack.swiftUIColor,
                             lineWidth: 1)
             }

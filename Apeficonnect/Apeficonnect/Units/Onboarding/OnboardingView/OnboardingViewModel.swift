@@ -10,7 +10,7 @@ import Foundation
 extension OnboardingView {
     final class OnboardingViewModel: ObservableObject {
         @Published var showPrivacyPolicy = false
-        let privacyPolicyURL = URL(string: "https://google.com")
+        let privacyPolicyURL = URL(string: "https://apeficonnect.info")
         
         @Published var showAuth = false
     }

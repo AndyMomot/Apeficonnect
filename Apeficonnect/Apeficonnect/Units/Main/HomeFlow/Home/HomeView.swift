@@ -18,9 +18,6 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.paleAsh
-                    .ignoresSafeArea()
-                
                 VStack {
                     Asset.homeBg.swiftUIImage
                         .resizable()
@@ -28,6 +25,9 @@ struct HomeView: View {
                     Spacer()
                 }
                 .ignoresSafeArea()
+                
+                Color.purpleCustom.opacity(0.2)
+                    .ignoresSafeArea()
                 
                 VStack(spacing: 20) {
                     HStack(spacing: 20) {
@@ -44,17 +44,21 @@ struct HomeView: View {
                         
                         NavigationTitleView()
                         
-                        Image(systemName: "person.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24, height: 24)
-                            .hidden()
+                        Button {
+                            viewModel.showAddNote.toggle()
+                        } label: {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundStyle(.white)
+                                .frame(width: 24, height: 24)
+                        }
                     }
                     
                     ScrollView {
                         VStack(spacing: 20) {
                             HStack {
-                                Text("Income and Expenditure Statistics for the Period")
+                                Text("Notes")
                                     .foregroundStyle(.white)
                                     .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
                                 Spacer()
@@ -63,32 +67,36 @@ struct HomeView: View {
                             BlurredContainerView {
                                 VStack(spacing: 20) {
                                     HStack {
-                                        MenuPicker(
-                                            selectedItem: $viewModel.selectedYear,
-                                            items: viewModel.yearsList)
-                                        .frame(width: bounds.width * 0.3)
+                                        if !viewModel.sortList.isEmpty {
+                                            MenuPicker(
+                                                selectedItem: $viewModel.selectedSortItem,
+                                                items: viewModel.sortList)
+                                            .frame(width: bounds.width * 0.3)
+                                        }
                                         
                                         Spacer()
                                         
-                                        MenuPicker(
-                                            selectedItem: $viewModel.selectedMonth,
-                                            items: viewModel.monthList)
-                                        .frame(width: bounds.width * 0.3)
+                                        if !viewModel.categoryList.isEmpty {
+                                            MenuPicker(
+                                                selectedItem: $viewModel.selectedCategory,
+                                                items: viewModel.categoryList)
+                                            .frame(width: bounds.width * 0.3)
+                                        }
                                     }
                                     
-                                    if viewModel.incomeItems.isEmpty && viewModel.costItems.isEmpty {
-                                        Text("No data")
+                                    if viewModel.notes.isEmpty {
+                                        Text("Nie znaleziono wpisów")
+                                            .foregroundStyle(.white)
+                                            .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
+                                            .multilineTextAlignment(.center)
                                     } else {
-                                        IncomeCostChartView(
-                                            incomeItems: viewModel.incomeItems,
-                                            costItems: viewModel.costItems
-                                        )
+                                        VStack(spacing: 10) {
+                                            ForEach(viewModel.notes) { note in
+                                                NoteView(item: note)
+                                            }
+                                        }
                                     }
                                 }
-                            }
-                            
-                            if !viewModel.incomeCostItems.isEmpty {
-                                OperationsView(items: viewModel.incomeCostItems)
                             }
                         }
                         .padding(.bottom, bounds.height * 0.1)
@@ -98,17 +106,20 @@ struct HomeView: View {
                 .padding(.horizontal, 16)
             }
             .onAppear {
-                viewModel.setInitialPickerValue()
-                viewModel.getItems()
+                viewModel.getCategories()
+                viewModel.getNotes()
             }
-            .onChange(of: viewModel.selectedMonth) { _ in
-                viewModel.getItems()
+            .onChange(of: viewModel.selectedSortItem) { _ in
+                viewModel.getNotes()
             }
-            .onChange(of: viewModel.selectedYear) { _ in
-                viewModel.getItems()
+            .onChange(of: viewModel.selectedCategory) { _ in
+                viewModel.getNotes()
             }
             .navigationDestination(isPresented: $viewModel.showProfile) {
                 ProfileView()
+            }
+            .navigationDestination(isPresented: $viewModel.showAddNote) {
+                CreateNoteView()
             }
         }
     }

@@ -12,106 +12,62 @@ extension HomeView {
         
         // MARK: Published properties
         @Published var showProfile = false
+        @Published var showAddNote = false
         
-        @Published var selectedYear = ""
-        @Published var selectedMonth = ""
-        @Published var isSetInitPikerValues = false
+        @Published var selectedSortItem = Sort.newFirst.rawValue
+        @Published var selectedCategory = ""
         
-        @Published var incomeItems: [Int] = []
-        @Published var costItems: [Int] = []
-        @Published var incomeCostItems:  [IncomeCostModel] = []
-        
-        // MARK: Computed properties
-        var yearsList: [String] {
-            let currentYear = Calendar.current.component(.year, from: Date())
-            return (0..<5).map { "\(currentYear - $0)" }
-        }
-        
-        var monthList: [String] {
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale.current // Use the current locale for localization
-            dateFormatter.dateFormat = "MMMM" // Full month name (e.g., January, February)
-
-            // Generate a list of 12 months
-            let months = (1...12).map { monthNumber -> String in
-                var dateComponents = DateComponents()
-                dateComponents.month = monthNumber
-                let calendar = Calendar.current
-                let date = calendar.date(from: dateComponents)!
-                return dateFormatter.string(from: date)
-            }
-            
-            return months
-        }
+        @Published var sortList: [String] = Sort.allCases.map { $0.rawValue }.sorted()
+        @Published var categoryList: [String] = []
+        @Published var notes: [NoteModel] = []
         
         // MARK: Functions
-        func getCurrentYear() -> String {
-            "\(Calendar.current.component(.year, from: Date()))"
-        }
-        
-        func getCurrentMonth() -> String {
-            // Create a DateFormatter
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMMM" // Set format to full month name (e.g., January, February)
-
-            // Get the current date
-            let currentDate = Date()
-
-            // Format the current date to get the current month
-            let currentMonth = dateFormatter.string(from: currentDate)
-            return currentMonth
-        }
-        
-        func setInitialPickerValue() {
-            DispatchQueue.main.async { [weak self] in
-                guard let self, !self.isSetInitPikerValues else { return }
-                self.selectedYear = self.getCurrentYear()
-                self.selectedMonth = self.getCurrentMonth()
-                self.isSetInitPikerValues = true
-                self.getItems()
-            }
-        }
-        
-        func getItems() {
+        func getCategories() {
             DispatchQueue.global().async { [weak self] in
-                guard let self, let selectedDate = self.getSelectedDate() else { return }
-                
-                let calendar = Calendar.current
-                let filterYear = calendar.component(.year, from: selectedDate)
-                let filterMonth = calendar.component(.month, from: selectedDate)
-                
-                let items = DefaultsService.shared.incomeCostItems.filter {
-                    let modelYear = calendar.component(.year, from: $0.date)
-                    let modelMonth = calendar.component(.month, from: $0.date)
-                    return modelYear == filterYear && modelMonth == filterMonth
-                }
-                let incomeItems = items.filter { $0.type == .income }.map { $0.amount }
-                let costItems = items.filter { $0.type == .cost }.map { $0.amount }
+                guard let self else { return }
+                var items = DefaultsService.shared.noteCategories
+                items.insert("Wszystko", at: 0)
                 
                 DispatchQueue.main.async { [self] in
-                    self.incomeItems = incomeItems
-                    self.costItems = costItems
-                    self.incomeCostItems = items
+                    self.selectedCategory = items.first ?? ""
+                    self.categoryList = items
                 }
             }
         }
         
-        func getSelectedDate() -> Date? {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMMM"
-            if let monthIndex = monthList.firstIndex(where: {$0 == selectedMonth} ) {
+        func getNotes() {
+            DispatchQueue.global().async { [weak self] in
+                guard let self else { return }
+                var items = DefaultsService.shared.notes
                 
-                let monthNumber = monthIndex + 1
-                var dateComponents = DateComponents()
-                dateComponents.year = Int(selectedYear)
-                dateComponents.month = monthNumber
-
-                let calendar = Calendar.current
-                let date = calendar.date(from: dateComponents)
-                return date
-            } else {
-                return nil
+                if !self.selectedCategory.isEmpty && self.selectedCategory != "Wszystko" {
+                    items = items.filter { $0.category == self.selectedCategory }
+                }
+                
+                switch (Sort(rawValue: self.selectedSortItem) ?? .newFirst) {
+                case .az:
+                    items = items.sorted(by: { $0.title < $1.title })
+                case .za:
+                    items = items.sorted(by: { $0.title > $1.title })
+                case .newFirst:
+                    items = items.sorted(by: { $0.date > $1.date })
+                case .oldFirst:
+                    items = items.sorted(by: { $0.date < $1.date })
+                }
+                
+                DispatchQueue.main.async { [self] in
+                    self.notes = items
+                }
             }
         }
+    }
+}
+
+extension HomeView {
+    enum Sort: String, CaseIterable {
+        case az = "A-Ż"
+        case za = "Ż-A"
+        case newFirst = "Najpierw now"
+        case oldFirst = "Najpierw stare"
     }
 }

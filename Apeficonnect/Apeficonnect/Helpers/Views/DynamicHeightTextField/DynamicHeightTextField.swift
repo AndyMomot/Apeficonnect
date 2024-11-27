@@ -15,35 +15,37 @@ struct DynamicHeightTextField: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(title)
-                .foregroundStyle(.black)
-                .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 15))
+                .foregroundStyle(.dimGray)
+                .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
             
             ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundStyle(.white)
-                
                 TextEditor(text: $text)
-                    .foregroundStyle(.black)
-                    .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 15))
+                    .scrollContentBackground(.hidden)
+                    .foregroundStyle(.dimGray)
+                    .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
                     .padding()
                 
                 if text.isEmpty {
                     Text(placeholder)
-                        
-                        .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 15))
+                        .foregroundStyle(.dimGray.opacity(0.5))
+                        .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
                         .padding(.horizontal, 20)
                         .padding(.vertical, 26)
                         .allowsHitTesting(false)
                 }
             }
             .cornerRadius(20, corners: .allCorners)
+            .overlay {
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(Color.charcoalBlack, lineWidth: 1)
+            }
         }
     }
 }
 
 #Preview {
     ZStack {
-       
+        Color.gray
         DynamicHeightTextField(
             title: "Uwaga do projektu",
             text: .constant(""))

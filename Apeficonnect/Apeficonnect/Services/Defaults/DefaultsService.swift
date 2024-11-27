@@ -90,6 +90,40 @@ extension DefaultsService {
             }
         }
     }
+    
+    var notes: [NoteModel] {
+        get {
+            guard let data = standard.object(forKey: Keys.notes.rawValue) as? Data,
+                  let items = try? JSONDecoder().decode([NoteModel].self, from: data)
+            else {
+                return []
+            }
+            
+            return items
+        }
+        set {
+            if let data = try? JSONEncoder().encode(newValue) {
+                standard.setValue(data, forKey: Keys.notes.rawValue)
+            }
+        }
+    }
+    
+    var noteCategories: [String] {
+        get {
+            guard let data = standard.object(forKey: Keys.noteCategories.rawValue) as? Data,
+                  let items = try? JSONDecoder().decode([String].self, from: data)
+            else {
+                return []
+            }
+            
+            return items
+        }
+        set {
+            if let data = try? JSONEncoder().encode(newValue) {
+                standard.setValue(data, forKey: Keys.noteCategories.rawValue)
+            }
+        }
+    }
 }
 
 extension DefaultsService {
@@ -108,5 +142,7 @@ extension DefaultsService {
         case incomeCostItems
         case incomeCostCategories
         case goals
+        case notes
+        case noteCategories
     }
 }

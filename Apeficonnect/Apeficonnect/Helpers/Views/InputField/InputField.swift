@@ -30,7 +30,7 @@ struct InputField: View {
             .padding(.vertical, 16)
             .overlay {
                 RoundedRectangle(cornerRadius: 15)
-                    .stroke(Color.dimGray, lineWidth: 1)
+                    .stroke(Color.charcoalBlack, lineWidth: 1)
             }
         }
     }

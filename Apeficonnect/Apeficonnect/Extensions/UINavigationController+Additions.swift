@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 // Swipe-back gesture if navigation bar back button is hidden
-extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
+extension UINavigationController: UIGestureRecognizerDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = self

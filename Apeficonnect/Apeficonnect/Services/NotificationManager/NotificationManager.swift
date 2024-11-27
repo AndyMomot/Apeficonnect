@@ -13,7 +13,7 @@ final class NotificationManager {
     static let shared = NotificationManager()
 
     // Функция для запроса разрешений
-    func requestPermission(completion: @escaping (Result<Bool, Error>) -> Void) {
+    func requestPermission(completion: @escaping (Swift.Result<Bool, Error>) -> Void) {
         let center = UNUserNotificationCenter.current()
 
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in

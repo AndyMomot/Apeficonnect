@@ -32,29 +32,13 @@ struct BlurredContainerView<C: View>: View {
                     BlurView(style: .light)
                         .opacity(blurOpacity)
                     
-                    LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color.blue.opacity(colorOpacity),
-                            Color.purple.opacity(colorOpacity),
-                            Color.pink.opacity(colorOpacity),
-                            Color.orange.opacity(colorOpacity)
-                        ]),
-                        startPoint: .leading,
-                        endPoint: .trailing)
+                    Color.purpleCustom.opacity(colorOpacity)
                 }
-                    .cornerRadius(30, corners: .allCorners)
+                    .cornerRadius(2, corners: .allCorners)
             )
             .overlay {
-                RoundedRectangle(cornerRadius: 30)
-                    .stroke(LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color.blue,
-                            Color.purple,
-                            Color.pink,
-                            Color.orange]),
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    ), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 2)
+                    .stroke(Color.purpleCustom, lineWidth: 1)
             }
             .padding(1)
     }
