@@ -1171,6 +1171,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Apeficonnect/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Istnimere;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera for taking profile pictures.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to your location to provide location-based features and enhance your experience";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1207,6 +1208,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Apeficonnect/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Istnimere;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera for taking profile pictures.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to your location to provide location-based features and enhance your experience";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
