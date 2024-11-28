@@ -17,8 +17,8 @@ extension ProfileView {
         @Published var showLoader = false
         @Published var showClearCacheAlert = false
         
-        var appUrl = "https://apps.apple.com/app/id6738513209"
-        //6738513209
+        var appUrl = "https://apps.apple.com/app/id6738754615"
+
         private var saveNicknameWorkItem: DispatchWorkItem?
         
         func getUser() {

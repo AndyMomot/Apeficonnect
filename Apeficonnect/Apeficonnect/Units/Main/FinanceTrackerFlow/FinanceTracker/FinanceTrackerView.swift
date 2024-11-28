@@ -24,7 +24,7 @@ struct FinanceTrackerView: View {
                 NavigationTitleView()
                 
                 HStack {
-                    Text("Śledzenie finansów")
+                    Text("Mój postęp")
                         .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
                         .foregroundStyle(Color.white)
                     Spacer()
@@ -81,7 +81,7 @@ struct FinanceTrackerView: View {
                                         .fill(.green)
                                         .frame(width: 12)
                                     HStack(spacing: 5) {
-                                        Text("Dochód:")
+                                        Text("Osiągnięte cele:")
                                             .foregroundStyle(Color.white)
                                             .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                                         Text("\(viewModel.income)".toNumberFormat())
@@ -96,7 +96,7 @@ struct FinanceTrackerView: View {
                                         .fill(.red)
                                         .frame(width: 12)
                                     HStack(spacing: 4) {
-                                        Text("Koszt:")
+                                        Text("Niedokończone cele:")
                                             .foregroundStyle(Color.white)
                                             .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                                         Text("\(viewModel.cost)".toNumberFormat())

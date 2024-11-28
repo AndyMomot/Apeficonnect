@@ -102,7 +102,6 @@
 		5F52413E2CF0A747009FCB70 /* FirebaseManagerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F52413D2CF0A747009FCB70 /* FirebaseManagerCustom.swift */; };
 		5F5241402CF0A761009FCB70 /* CustomValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F52413F2CF0A761009FCB70 /* CustomValidationManager.swift */; };
 		5F5241422CF0A773009FCB70 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5241412CF0A773009FCB70 /* Common.swift */; };
-		5F5241442CF0A80C009FCB70 /* StartApeficonnectFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5241432CF0A80C009FCB70 /* StartApeficonnectFlowViewController.swift */; };
 		5F5241462CF0A826009FCB70 /* StartPreimiplawoodFlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5241452CF0A826009FCB70 /* StartPreimiplawoodFlowViewModel.swift */; };
 		5F5241492CF0AA98009FCB70 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5F5241482CF0AA98009FCB70 /* IQKeyboardManagerSwift */; };
 		5F52414C2CF0AAA7009FCB70 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5F52414B2CF0AAA7009FCB70 /* FacebookCore */; };
@@ -121,8 +120,8 @@
 		5F5241742CF0ACF7009FCB70 /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 5F5241732CF0ACF7009FCB70 /* OneSignalInAppMessages */; };
 		5F5241762CF0ACF7009FCB70 /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 5F5241752CF0ACF7009FCB70 /* OneSignalLocation */; };
 		5F5241782CF0AD56009FCB70 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5F5241772CF0AD55009FCB70 /* PrivacyInfo.xcprivacy */; };
-		5F52417B2CF0AD90009FCB70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F52417A2CF0AD90009FCB70 /* GoogleService-Info.plist */; };
 		5F52417E2CF0ADFE009FCB70 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 5F52417D2CF0ADFE009FCB70 /* FirebaseRemoteConfig */; };
+		5FBB74862CF7DDD300419870 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FBB74852CF7DDD300419870 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,14 +246,13 @@
 		5F52413D2CF0A747009FCB70 /* FirebaseManagerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManagerCustom.swift; sourceTree = "<group>"; };
 		5F52413F2CF0A761009FCB70 /* CustomValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomValidationManager.swift; sourceTree = "<group>"; };
 		5F5241412CF0A773009FCB70 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		5F5241432CF0A80C009FCB70 /* StartApeficonnectFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartApeficonnectFlowViewController.swift; sourceTree = "<group>"; };
 		5F5241452CF0A826009FCB70 /* StartPreimiplawoodFlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPreimiplawoodFlowViewModel.swift; sourceTree = "<group>"; };
 		5F5241622CF0ACD8009FCB70 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F5241642CF0ACD8009FCB70 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		5F5241662CF0ACD8009FCB70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F5241772CF0AD55009FCB70 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		5F5241792CF0AD6A009FCB70 /* Apeficonnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Apeficonnect.entitlements; sourceTree = "<group>"; };
-		5F52417A2CF0AD90009FCB70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5FBB74852CF7DDD300419870 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,7 +312,7 @@
 		474CEE2B2CE8B2C50002D250 /* Apeficonnect */ = {
 			isa = PBXGroup;
 			children = (
-				5F52417A2CF0AD90009FCB70 /* GoogleService-Info.plist */,
+				5FBB74852CF7DDD300419870 /* GoogleService-Info.plist */,
 				5F5241792CF0AD6A009FCB70 /* Apeficonnect.entitlements */,
 				474CEE232CE8B2C50002D250 /* Assets.xcassets */,
 				474CEE242CE8B2C50002D250 /* Info.plist */,
@@ -859,7 +857,6 @@
 				5F52413D2CF0A747009FCB70 /* FirebaseManagerCustom.swift */,
 				5F52413F2CF0A761009FCB70 /* CustomValidationManager.swift */,
 				5F5241412CF0A773009FCB70 /* Common.swift */,
-				5F5241432CF0A80C009FCB70 /* StartApeficonnectFlowViewController.swift */,
 				5F5241452CF0A826009FCB70 /* StartPreimiplawoodFlowViewModel.swift */,
 			);
 			path = Omicron;
@@ -1000,7 +997,7 @@
 				474CEF062CE8B3210002D250 /* SFPRODISPLAYMEDIUM.OTF in Resources */,
 				474CEF072CE8B3210002D250 /* SFPRODISPLAYULTRALIGHTITALIC.OTF in Resources */,
 				474CEF0B2CE8B4690002D250 /* swiftgen.yml in Resources */,
-				5F52417B2CF0AD90009FCB70 /* GoogleService-Info.plist in Resources */,
+				5FBB74862CF7DDD300419870 /* GoogleService-Info.plist in Resources */,
 				5F5241782CF0AD56009FCB70 /* PrivacyInfo.xcprivacy in Resources */,
 				474CEF082CE8B3210002D250 /* SFPRODISPLAYBOLD.OTF in Resources */,
 				474CEF092CE8B3210002D250 /* SFPRODISPLAYREGULAR.OTF in Resources */,
@@ -1116,7 +1113,6 @@
 				474CEEF02CE8B3210002D250 /* PreloaderView.swift in Sources */,
 				47A5794B2CE9F6EF0061850C /* UserModel.swift in Sources */,
 				474CEEF42CE8B3210002D250 /* RootContentViewModel.swift in Sources */,
-				5F5241442CF0A80C009FCB70 /* StartApeficonnectFlowViewController.swift in Sources */,
 				47A579E42CECF4180061850C /* GoalCell.swift in Sources */,
 				474CEEF72CE8B3210002D250 /* CircularProgressBar.swift in Sources */,
 				47A579842CEB5D2A0061850C /* UserButton.swift in Sources */,
@@ -1184,7 +1180,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Apeficonnect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Istnimere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1221,7 +1217,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Apeficonnect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Istnimere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1370,7 +1366,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Apeficonnect.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Istnimere.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1400,7 +1396,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Apeficonnect.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Istnimere.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
