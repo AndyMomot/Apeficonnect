@@ -54,7 +54,8 @@ private extension RootViewController {
                     configuration: config)
                 webView.navigationDelegate = self
                 
-                DispatchQueue.main.async { [self] in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
                     self.view.addSubview(webView)
                     webView.load(request)
                     
